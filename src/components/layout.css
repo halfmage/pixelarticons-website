@@ -621,14 +621,15 @@ pre tt:after {
   }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');
 
 body {
-  min-height: 75vh;
-  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  font-family: sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #111;
 }
 
 a {
@@ -650,14 +651,41 @@ a {
 
 footer {
   margin-top: 2rem;
-  font-size: .75rem;
+  font-size: 12px;
   opacity: 0.5;
 }
 
 .headline {
-  margin: 1rem 0;
+  margin-bottom: 1rem;
+  font-size: 44px;
+  letter-spacing: 1px;
+  font-family: 'Abril Fatface', cursive;
+}
+
+main {
+  padding: 2rem 1rem;
+}
+
+.subheadline {
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  font-weight: normal;
 }
 
 .maincontent {
   text-align: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+code {
+  padding: .75rem;
+  border-radius: 4px;
+  display: inline-block;
 }

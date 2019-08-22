@@ -3,24 +3,68 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import "pixelarticons/pixelarticons.css"
+
+import File from "pixelarticons/icons/file.svg"
+import Mail from "pixelarticons/icons/mail.svg"
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <svg width="36" height="44" viewBox="0 0 36 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M20 0H4H0V4V40V44H4H32H36V40V16V12H32V8H28V4H24V0H20ZM28 12V8H24V12H28ZM20 12V4H4V40H32V16H24H20V12Z" fill="#000"/>
-    </svg>
-    <h1 className="headline">Pixel Art Icons</h1>
-    <div>Coming soon...</div>
-    <a
-      className="button"
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://www.instagram.com/pixelarticons"
-    >
-      <span role="img" aria-label="pointer-right">👉 </span> 
-      Get notified on Intagram
-      <span role="img" aria-label="pointer-left"> 👈</span>
-    </a>
+
+    <h1 className="headline">Pixelarticons</h1>
+    <h2 className="subheadline">In Development - v.0.11.1</h2>
+
+    <code>
+      npm install pixelarticons
+    </code>
+
+    <div className="container">
+      <a href={File} download="pixelarticon_File"><img src={File} /></a>
+      <a href={Mail} download="pixelarticon_Mail"><img src={Mail} /></a>
+    </div>
+
+    <div className="container">
+      <i className="px-48 px-delete"></i>
+      <i className="px-48 px-file"></i>
+      <i className="px-48 px-flag"></i>
+      <i className="px-48 px-heart"></i>
+      <i className="px-48 px-mail"></i>
+    </div>
+    
+    <div className="container">
+      <i className="px-48 px-arrow-up"></i>
+      <i className="px-48 px-arrow-right"></i>
+      <i className="px-48 px-arrow-down"></i>
+      <i className="px-48 px-arrow-left"></i>
+    </div>
+
+    <div className="container">
+      <i className="px-48 px-angle-up"></i>
+      <i className="px-48 px-angle-right"></i>
+      <i className="px-48 px-angle-down"></i>
+      <i className="px-48 px-angle-left"></i>
+    </div>
+
+    <div className="container">
+      <i className="px-48 px-angle-double-up"></i>
+      <i className="px-48 px-angle-double-right"></i>
+      <i className="px-48 px-angle-double-down"></i>
+      <i className="px-48 px-angle-double-left"></i>
+    </div>
+
+    <div className="container">
+      <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/pixelarticons">
+        Instagram
+      </a>
+      <a target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/package/pixelarticons">
+      NPM
+      </a>
+      <a target="_blank" rel="noopener noreferrer" href="https://github.com/halfmage/pixelarticons">
+        Github
+      </a>
+    </div>
+
   </Layout>
 )
 

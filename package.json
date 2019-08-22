@@ -20,6 +20,7 @@
     "react-spring": "^8.0.25"
   },
   "devDependencies": {
+    "pixelarticons": "^0.11.1",
     "prettier": "^1.18.2"
   },
   "keywords": [
