@@ -9,6 +9,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import {useSpring, animated} from 'react-spring'
 
+import Header from './header';
+import Footer from './footer';
+
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -24,16 +27,17 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <animated.div style={props}>
-        <div className="maincontent">
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
-      </animated.div>
+      <Header />
+        <animated.div style={props}>
+          <div style={{
+            maxWidth: '64rem',
+            margin: '0 auto'
+          }}
+          >
+            {children}
+          </div>
+        </animated.div>
+      <Footer />
     </>
   )
 }
