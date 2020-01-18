@@ -621,24 +621,41 @@ pre tt:after {
   }
 }
 
-table td {
-  text-align: center;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-collapse: collapse;
-  width: 1%;
-  transition: all .25s;
+body {
+  color: #111;
+  background-color: #f5f5f5;
 }
 
-table td svg {
-  transition: all .25s;
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-table td:hover {
-  background-color: #111;
-  cursor: pointer;
+.iconLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  margin: .5rem;
+  padding: 1rem .5rem;
+
+  text-decoration: none;
+  font-size: 12px;
+  font-family: "Space Mono";
+  color: #444;
 }
 
-table td:hover svg {
-  fill: #fff;
+.iconLink div {
+  margin-top: .5rem;
+}
+
+.iconImg {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  display: block;
 }

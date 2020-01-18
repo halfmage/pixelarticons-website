@@ -12,10 +12,12 @@
     "gatsby-plugin-react-helmet": "^3.1.0",
     "gatsby-plugin-sharp": "^2.2.1",
     "gatsby-source-filesystem": "^2.1.0",
+    "gatsby-transformer-inline-svg": "0.0.4",
     "gatsby-transformer-sharp": "^2.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-grid-system": "^6.0.7",
     "react-helmet": "^5.2.1",
     "react-spring": "^8.0.25"
   },
