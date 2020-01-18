@@ -12,7 +12,7 @@ import {useSpring, animated} from 'react-spring'
 import Header from './header';
 import Footer from './footer';
 
-import "./layout.css"
+import "../styles/styles.css"
 
 const Layout = ({ children }) => {
 
@@ -29,11 +29,7 @@ const Layout = ({ children }) => {
     <>
       <Header />
         <animated.div style={props}>
-          <div style={{
-            maxWidth: '64rem',
-            margin: '0 auto'
-          }}
-          >
+          <div className="container">
             {children}
           </div>
         </animated.div>
