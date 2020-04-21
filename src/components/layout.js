@@ -7,24 +7,14 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import {useSpring, animated} from 'react-spring'
 
-import "./layout.css"
+import Header from "../components/header"
 
 const Layout = ({ children }) => {
-
-  const props = useSpring({
-    transform: 'translateY(0)',
-    opacity: 1,
-    from: {
-      transform: 'translateY(100px)',
-      opacity: 0,
-    }
-  })
-
   return (
     <>
-      <animated.div style={props}>
+      <div>
+        <Header />
         <div className="maincontent">
           <main>{children}</main>
           <footer>
@@ -33,7 +23,7 @@ const Layout = ({ children }) => {
             <a href="https://www.gatsbyjs.org">Gatsby</a>
           </footer>
         </div>
-      </animated.div>
+      </div>
     </>
   )
 }

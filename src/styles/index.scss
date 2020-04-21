@@ -1,0 +1,122 @@
+@import "normalize";
+@import "grid";
+
+body {
+  background-color: #fff;
+  font-family: 'Space Mono';
+  font-weight: 16px;
+}
+
+a {
+  color: #00b;
+}
+
+.col-icon {
+  padding: 0;
+}
+
+.icon-container {
+  text-decoration: none;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: inline-block;
+  width: 100%;
+  border: 2px solid transparent;
+
+  &:hover {
+    border: 2px solid #00b;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto 1rem;
+    width: 48px;
+    height: 48px;
+  }
+
+  .icon-name {
+    font-size: 14px;
+    letter-spacing: 0;
+    font-family: sans-serif;
+    display: block;
+    width: 100%;
+    color: #aaa;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.header {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  .badge {
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px 4px;
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 1rem;
+
+    @media (min-width: 48em) {
+      margin-top: 0;
+    }
+  }
+
+  a + a {
+    margin-left: 1rem;
+  }
+}
+
+.hero {
+  padding: 8rem 0;
+  margin-bottom: 2rem;
+  background-color: #eee;
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  .button {
+    padding: .75rem 1.5rem;
+    border: 2px solid #000;
+    text-decoration: none;
+    background-color: #fff;
+    display: inline-block;
+
+    &:hover {
+      background-color: #00b;
+      border-color: #00b;
+      color: #fff;
+    }
+
+    &.primary {
+      background-color: #00b;
+      border-color: #00b;
+      color: #fff;
+
+      &:hover {
+        background-color: #00f;
+        border-color: #00f;
+      }
+    }
+
+    & + .button {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.headline {
+  font-size: 36px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.headline-small {
+  font-size: 20px;
+  margin: 0 0 .5rem;
+}
