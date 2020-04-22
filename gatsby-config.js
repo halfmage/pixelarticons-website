@@ -3,8 +3,8 @@ module.exports = {
     title: `Pixelarticons`,
     description: `Beautiful pixel icons. For the pixel vibes.`,
     author: `@gatsbyjs`,
-    url: "https://www.pixelarticons.com", // No trailing slash allowed!
-    image: "/images/pixelarticons-cover.jpg",
+    url: "https://www.pixelarticons.com",
+    image: "/pixelarticons-cover.jpg",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
