@@ -9,7 +9,7 @@ import Hero from "../components/Hero"
 const IndexPage = ({ data }) => (
   <Layout>
 
-    <SEO title="Home" />
+    <SEO title="Pixelarticons - Beautiful pixel icons" />
 
     <Hero />
 
