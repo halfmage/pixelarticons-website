@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Pixel Art Icons`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Pixelarticons`,
+    description: `Beautiful pixel icons. For the pixel vibes.`,
     author: `@gatsbyjs`,
+    url: "https://www.pixelarticons.com", // No trailing slash allowed!
+    image: "/images/pixelarticons-cover.jpg",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -37,13 +39,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `pixelarticons`,
+        short_name: `pixelarticons`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#111111`,
+        theme_color: `#111111`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/pixelarticons-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -16,7 +16,7 @@ const IndexPage = ({ data }) => (
     <div className=" container-fluid">
       <div className="row center-xs icon-row">
         {data.allFile.edges.map(({ node }) => (
-          <div className="col-icon col-xs-4 col-sm-3 col-md-3 col-lg-1 center-xs">
+          <div className="col-icon col-xs-3 col-lg-1 center-xs">
             <a className="icon-container" key={node.id} href={node.publicURL} download>
               <img src={node.publicURL} alt={node.name} />
               <div className="icon-name">{node.name}</div>
