@@ -39,15 +39,15 @@ function SEO({ description, lang, meta, title, url, image }) {
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: `Beautiful pixel icons. For the pixel vibes.`,
         },
         {
           property: `og:title`,
-          content: title,
+          content: `pixelarticons`,
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: `Beautiful pixel icons. For the pixel vibes.`,
         },
         {
           property: `og:type`,
@@ -59,7 +59,7 @@ function SEO({ description, lang, meta, title, url, image }) {
         },
         {
           property: `og:url`,
-          content: url,
+          content: `https://pixelarticons.com`,
         },
         {
           name: `twitter:card`,
@@ -67,15 +67,15 @@ function SEO({ description, lang, meta, title, url, image }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: `Gerrit Halfmann`,
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: `pixelarticons`,
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: `Beautiful pixel icons. For the pixel vibes.`,
         },
         {
           name: `twitter:image`,
