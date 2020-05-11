@@ -55,7 +55,7 @@ function SEO({ description, lang, meta, title, url, image }) {
         },
         {
           property: `og:image`,
-          content: image,
+          content: `https://pixelarticons.com/pixelarticons-cover.jpg`,
         },
         {
           property: `og:url`,
@@ -63,7 +63,7 @@ function SEO({ description, lang, meta, title, url, image }) {
         },
         {
           name: `twitter:card`,
-          content: image,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -79,7 +79,7 @@ function SEO({ description, lang, meta, title, url, image }) {
         },
         {
           name: `twitter:image`,
-          content: image,
+          content: `https://pixelarticons.com/pixelarticons-cover.jpg`,
         },
       ].concat(meta)}
     />

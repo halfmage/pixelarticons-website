@@ -10484,10 +10484,10 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-pixelarticons@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/pixelarticons/-/pixelarticons-0.12.0.tgz#93c0175c1b1b7a74d482d61112b12bdc196f4033"
-  integrity sha512-8q1fewa3fXpboSacwdRmfZOpGOt1/43aT3T60NqQjkVwhT2CElgNXde4MTe1u0hvP7F+sGgzpov5ogIQVh7Ulg==
+pixelarticons@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/pixelarticons/-/pixelarticons-1.0.1.tgz#eab4d4e53cf42b3cbb4494374e88a329e6142881"
+  integrity sha512-XIBLNsELfp0e8G1EaGFhPe58YqOFONmwXZ8is2mrkDMopnVKNyaMhdrkQSr/KYFxOq3Pz+70Kmxl4wblUowcnA==
   dependencies:
     np "^6.2.1"
 
