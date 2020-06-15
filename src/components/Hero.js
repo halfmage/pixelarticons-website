@@ -6,6 +6,8 @@ const Hero = () => (
       <div className="col-xs-12 center-xs">
         <div className="hero">
           <h2 className="headline">Beautiful pixel icons</h2>
+          <h3>npm i pixelarticons</h3>
+          <br/>
           <a target="_blank" rel="noopener noreferrer" href="https://github.com/halfmage/pixelarticons/releases/download/v1.0.0/pixelarticons-v1.0.0.zip" className="button primary">Download all</a>
           <a target="_blank" rel="noopener noreferrer" href="https://github.com/halfmage/pixelarticons" className="button">Github</a>
         </div>

@@ -2,7 +2,7 @@
 @import "grid";
 
 body {
-  background-color: #fff;
+  background-color: #f4f4f4;
   font-family: 'Space Mono';
   font-weight: 16px;
 }
@@ -12,42 +12,43 @@ a {
 }
 
 .col-icon {
-  padding: 0;
+  margin-bottom: 1.5rem;
 }
 
 .icon-container {
   text-decoration: none;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  display: inline-block;
-  width: 100%;
-  border: 2px solid transparent;
+  display: block;
 
   &:hover {
-    border: 2px solid #00b;
+    .image-container {
+      box-shadow: 0 0 0 2px rgba(0,0,0,.125);
+      img {
+        transform: scale(2);
+      }
+    }
   }
 
-  img {
-    display: block;
-    margin: 0 auto 1rem;
-    width: 24px;
-    height: 24px;
+  .image-container {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 2rem 0;
+    margin-bottom: .5rem;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0);
+    transition: box-shadow .25s;
 
-    @media (min-width: 48em) {
-      width: 48px;
-      height: 48px;
+    img {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      transition: transform .25s;
     }
   }
 
   .icon-name {
-    font-size: 14px;
-    letter-spacing: 0;
-    font-family: sans-serif;
-    display: block;
-    width: 100%;
-    color: #aaa;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 12px;
+    color: rgba(0,0,0,.85);
+    line-height: 1.5;
+    text-align: center;
   }
 }
 
@@ -56,10 +57,11 @@ a {
   padding-bottom: 2rem;
 
   .badge {
-    background-color: #000;
+    background-color: #060;
+    border-radius: 2px;
     color: #fff;
     font-size: 14px;
-    padding: 2px 4px;
+    padding: .25rem .5rem;
   }
 
   a {
@@ -79,14 +81,13 @@ a {
 .hero {
   padding: 4rem 2rem;
   margin-bottom: 2rem;
-  background-color: #f2f2f2;
 
   h2 {
     margin-bottom: 2rem;
   }
 
   .button {
-    padding: .5rem 1rem;
+    padding: .75rem 1.5rem;
     border: 2px solid #000;
     text-decoration: none;
     background-color: #fff;

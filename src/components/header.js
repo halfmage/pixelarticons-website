@@ -5,7 +5,7 @@ const Header = ({ siteTitle }) => (
   <header className="header container-fluid">
     <div className="row middle-xs">
       <div className="col-xs-12 center-xs col-sm-6 start-sm">
-        {siteTitle} <span className="badge">v1.0.0</span>
+        {siteTitle} <span className="badge">v1.0.2</span>
       </div>
       <div className="col-xs-12 center-xs col-sm-6 end-sm">
         <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/pixelarticons">Instagram</a>

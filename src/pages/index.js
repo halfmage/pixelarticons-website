@@ -13,12 +13,18 @@ const IndexPage = ({ data }) => (
 
     <Hero />
 
-    <div className=" container-fluid">
+    <div className="container-fluid">
+      <div className="row center-xs">
+        <small>Click for download</small>
+        <br/><br/>
+      </div>
       <div className="row center-xs icon-row">
         {data.allFile.edges.map(({ node }) => (
-          <div className="col-icon col-xs-3 col-lg-1 center-xs">
+          <div className="col-icon col-xs-3 col-sm-2 col-lg-1 center-xs">
             <a className="icon-container" key={node.id} href={node.publicURL} download>
-              <img src={node.publicURL} alt={node.name} />
+              <div className="image-container">
+                <img src={node.publicURL} alt={node.name} />
+              </div>
               <div className="icon-name">{node.name}</div>
             </a>
           </div>
