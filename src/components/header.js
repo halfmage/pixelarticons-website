@@ -5,12 +5,30 @@ const Header = ({ siteTitle }) => (
   <header className="header container-fluid">
     <div className="row middle-xs">
       <div className="col-xs-12 center-xs col-sm-6 start-sm">
-        <strong>{siteTitle}</strong> <span className="badge">v1.1.0</span>
+        <strong>{siteTitle}</strong> <span className="badge">v1.1.1</span>
       </div>
       <div className="col-xs-12 center-xs col-sm-6 end-sm">
-        <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/pixelarticons">Instagram</a>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/package/pixelarticons">NPM</a>
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/halfmage/pixelarticons">Github</a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.instagram.com/pixelarticons"
+        >
+          Instagram
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.npmjs.com/package/pixelarticons"
+        >
+          NPM
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/halfmage/pixelarticons"
+        >
+          Github
+        </a>
       </div>
     </div>
   </header>
