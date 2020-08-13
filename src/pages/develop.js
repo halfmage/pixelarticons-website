@@ -11,27 +11,13 @@ const IndexPage = ({ data }) => (
     <div style={{ backgroundColor: "#fff" }}>
       <br />
       <h3 style={{ margin: "0 1rem", color: "#222" }}>
-        pixelarticons v2 24x24
+        pixelarticons v2 24x24 - {data.allFile.totalCount} icons
       </h3>
       {data.allFile.edges.map(({ node }) => (
         <img
           src={node.publicURL}
           alt={node.name}
           style={{ padding: "1rem", width: "1.5rem", height: "1.5rem" }}
-        />
-      ))}
-    </div>
-    <br />
-    <div style={{ backgroundColor: "#fff" }}>
-      <br />
-      <h3 style={{ margin: "0 1rem", color: "#222" }}>
-        pixelarticons v2 48x48
-      </h3>
-      {data.allFile.edges.map(({ node }) => (
-        <img
-          src={node.publicURL}
-          alt={node.name}
-          style={{ padding: "1rem", width: "3rem", height: "3rem" }}
         />
       ))}
     </div>
@@ -46,6 +32,7 @@ export const query = graphql`
       filter: { sourceInstanceName: { eq: "icons" } }
       sort: { fields: name, order: ASC }
     ) {
+      totalCount
       edges {
         node {
           id
