@@ -21,7 +21,7 @@ module.exports = {
         fonts: [
           {
             family: `Space Mono`,
-            variants: [`400`, `700`]
+            variants: [`400`, `700`],
           },
         ],
       },
@@ -31,6 +31,13 @@ module.exports = {
       options: {
         name: `pixelarticons`,
         path: `node_modules/pixelarticons/svg`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `icons`,
+        path: `${__dirname}/src/icons`,
       },
     },
     `gatsby-plugin-sass`,
