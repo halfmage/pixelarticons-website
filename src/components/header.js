@@ -1,33 +1,42 @@
 import PropTypes from "prop-types"
 import React from "react"
 
+import Download from "../icons/download.svg"
+import ExternalLink from "../icons/external-link.svg"
+import Avatar from "../icons/user.svg"
+
 const Header = ({ siteTitle }) => (
-  <header className="header container-fluid">
-    <div className="row middle-xs">
-      <div className="col-xs-12 center-xs col-sm-6 start-sm">
-        <strong>{siteTitle}</strong> <span className="badge">v1.1.1</span>
-      </div>
-      <div className="col-xs-12 center-xs col-sm-6 end-sm">
+  <header>
+    <div className="container-fluid wrap center-xs">
+      <h1 className="headline">Pixelarticons</h1>
+      <h3>385 retro interface icon</h3>
+      <div>
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.instagram.com/pixelarticons"
+          href="https://github.com/halfmage/pixelarticons/releases/download/v1.1.0/pixelarticons_1.1.0.zip"
+          className="button primary"
         >
-          Instagram
-        </a>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.npmjs.com/package/pixelarticons"
-        >
-          NPM
+          <img alt="Download Icon Pixelarticons" src={Download} />
+          Download 1.1.0
         </a>
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://github.com/halfmage/pixelarticons"
+          className="button"
         >
+          <img alt="External Link Icon Pixelarticons" src={ExternalLink} />
           Github
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/halfmage"
+          className="button"
+        >
+          <img alt="Avatar Icon Pixelarticons" src={Avatar} />
+          Gerrit
         </a>
       </div>
     </div>

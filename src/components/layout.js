@@ -13,17 +13,34 @@ import Header from "../components/header"
 const Layout = ({ children }) => {
   return (
     <>
-      <div>
-        <Header />
-        <div className="maincontent">
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
-      </div>
+      <Header />
+      <main>{children}</main>
+      <footer className="container-fluid wrap center-xs">
+        © {new Date().getFullYear()}, Built with
+        {` `}
+        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.instagram.com/pixelarticons"
+        >
+          Instagram
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.npmjs.com/package/pixelarticons"
+        >
+          NPM
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/halfmage/pixelarticons"
+        >
+          Github
+        </a>
+      </footer>
     </>
   )
 }

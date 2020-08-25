@@ -20,8 +20,8 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Space Mono`,
-            variants: [`400`, `700`],
+            family: `Sora`,
+            variants: [`400`, `700`, `900`],
           },
         ],
       },
