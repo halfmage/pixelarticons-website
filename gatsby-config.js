@@ -16,14 +16,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          {
-            family: `Sora`,
-            variants: [`400`, `700`, `900`],
-          },
-        ],
+        fonts: [`sora\:400,700,900`],
+        display: "swap",
       },
     },
     {
