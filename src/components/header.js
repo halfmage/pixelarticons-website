@@ -3,7 +3,6 @@ import React from "react"
 
 import Download from "../icons/download.svg"
 import ExternalLink from "../icons/external-link.svg"
-import Avatar from "../icons/user.svg"
 
 const Header = ({ siteTitle }) => (
   <header>
