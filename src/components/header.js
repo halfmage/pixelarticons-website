@@ -29,15 +29,6 @@ const Header = ({ siteTitle }) => (
           <img alt="External Link Icon Pixelarticons" src={ExternalLink} />
           Github
         </a>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/halfmage"
-          className="button"
-        >
-          <img alt="Avatar Icon Pixelarticons" src={Avatar} />
-          Gerrit
-        </a>
       </div>
     </div>
   </header>
