@@ -24,6 +24,7 @@ const Header = ({ siteTitle }) => (
           rel="noopener noreferrer"
           href="https://github.com/halfmage/pixelarticons"
           className="button"
+          style={{ marginLeft: ".5rem" }}
         >
           <img alt="External Link Icon Pixelarticons" src={ExternalLink} />
           Github
