@@ -29,7 +29,10 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    allFile(filter: { extension: { eq: "svg" } }) {
+    allFile(
+      filter: { sourceInstanceName: { eq: "icons" }, extension: { eq: "svg" } }
+      sort: { fields: name }
+    ) {
       edges {
         node {
           id

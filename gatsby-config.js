@@ -25,15 +25,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pixelarticons`,
-        path: `node_modules/pixelarticons/svg`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `icons`,
-        path: `${__dirname}/src/icons`,
+        path: `${__dirname}/src/icons-new`,
       },
     },
     `gatsby-plugin-sass`,
