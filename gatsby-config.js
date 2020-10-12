@@ -16,13 +16,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`sora\:400,700,900`],
-        display: "swap",
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `icons`,

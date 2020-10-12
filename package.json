@@ -3,12 +3,11 @@
   "private": true,
   "description": "Website for the finest pixel art icons on the internet.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Gerrit Halfmann <gerrit@gerrithalfmann.com>",
   "dependencies": {
     "gatsby": "^2.10.4",
     "gatsby-cli": "^2.12.100",
     "gatsby-image": "^2.2.3",
-    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-manifest": "^2.2.0",
     "gatsby-plugin-offline": "^2.2.0",
     "gatsby-plugin-react-helmet": "^3.1.0",
