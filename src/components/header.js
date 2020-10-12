@@ -63,7 +63,7 @@ const Header = ({ siteTitle }) => (
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/halfmage/pixelarticons/releases/tag/v1.2.0"
+          href="https://github.com/halfmage/pixelarticons/issues/new"
           className="button"
         >
           <svg
