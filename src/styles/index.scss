@@ -18,13 +18,21 @@ header {
 .headline {
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin: 0.75rem 0;
   text-transform: uppercase;
 }
 
 .subheadline {
   font-weight: normal;
-  margin-top: 0;
+  margin: 0.75rem 0;
+
+  code {
+    font-weight: bold;
+    display: inline-block;
+    background-color: #eee;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .icon {
@@ -58,9 +66,9 @@ a {
 .button {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 1rem;
   font-weight: 700;
-  margin: 0 0.25rem 0.5rem;
+  margin: 0 0 0.5rem;
   color: #2c7a7b;
   svg {
     margin-right: 0.5rem;

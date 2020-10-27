@@ -15,34 +15,15 @@ const Header = ({ siteTitle }) => (
           @halfmage
         </a>
       </h4>
+      <h4 className="subheadline">
+        <code>npm install pixelarticons</code>
+      </h4>
       <div className="row center-xs">
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/halfmage/pixelarticons/releases/tag/v1.2.0"
-          className="button primary"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M12.9998 17.0001L12.9998 3.00006H10.9998L10.9998 13H9.00006V11H7.00006V13H8.99994V15H10.9998V17.0001H12.9998ZM20.9998 19V15H18.9998V19L4.99982 19L4.99982 15H2.99982V19V21V21L4.99982 21V21L18.9998 21V21L20.9998 21V21V19ZM13 13V15H15V13H17V11H15V13H13Z"
-              fill="currentColor"
-            />
-          </svg>
-          Download
-        </a>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
           href="https://github.com/halfmage/pixelarticons"
-          className="button"
+          className="button primary"
         >
           <svg
             width="24"
@@ -58,7 +39,7 @@ const Header = ({ siteTitle }) => (
               fill="currentColor"
             />
           </svg>
-          Repository
+          Github
         </a>
         <a
           target="_blank"

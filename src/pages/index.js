@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -14,9 +15,8 @@ const IndexPage = ({ data }) => (
             className="icon col-xs-3 col-sm-2 col-md-1"
             key={node.id}
             href={node.publicURL}
-            download
           >
-            <img width="24" src={node.publicURL} alt={node.name} />
+            <Img fixed={node.childImageSharp.fixed} />
             <div className="icon-name">{node.name}</div>
           </a>
         ))}
@@ -30,15 +30,20 @@ export default IndexPage
 export const query = graphql`
   query {
     allFile(
-      filter: { sourceInstanceName: { eq: "icons" }, extension: { eq: "svg" } }
+      filter: { relativeDirectory: { eq: "icons" } }
       sort: { fields: name }
     ) {
+      totalCount
       edges {
         node {
           id
           name
           publicURL
-          prettySize
+          childImageSharp {
+            fixed(width: 24, height: 24) {
+              ...GatsbyImageSharpFixed
+            }
+          }
         }
       }
     }

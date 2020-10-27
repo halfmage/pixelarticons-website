@@ -19,7 +19,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `icons`,
-        path: `${__dirname}/src/icons-new`,
+        path: `${__dirname}/src/images/icons`,
       },
     },
     `gatsby-plugin-sass`,
