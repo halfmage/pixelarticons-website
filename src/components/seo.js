@@ -53,7 +53,7 @@ function SEO({ description, lang, meta, title, url, image }) {
         },
         {
           property: `og:image`,
-          content: `https://pixelarticons.com/pixelarticons-cover.jpg`,
+          content: `https://pixelarticons.com/social.png`,
         },
         {
           property: `og:url`,
@@ -77,7 +77,7 @@ function SEO({ description, lang, meta, title, url, image }) {
         },
         {
           name: `twitter:image`,
-          content: `https://pixelarticons.com/pixelarticons-cover.jpg`,
+          content: `https://pixelarticons.com/social.png`,
         },
       ].concat(meta)}
     />
