@@ -22,6 +22,7 @@ module.exports = {
         path: `${__dirname}/src/images/icons`,
       },
     },
+    "gatsby-plugin-simple-analytics",
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

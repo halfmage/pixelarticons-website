@@ -14,6 +14,7 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sass": "^2.2.3",
     "gatsby-plugin-sharp": "^2.2.1",
+    "gatsby-plugin-simple-analytics": "^1.0.3",
     "gatsby-source-filesystem": "^2.1.0",
     "gatsby-transformer-sharp": "^2.2.0",
     "node-sass": "^4.13.1",
