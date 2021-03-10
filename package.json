@@ -4,46 +4,35 @@
   "description": "Website for the finest pixel art icons on the internet.",
   "version": "0.1.0",
   "author": "Gerrit Halfmann <gerrit@gerrithalfmann.com>",
-  "dependencies": {
-    "gatsby": "^2.10.4",
-    "gatsby-cli": "^2.12.100",
-    "gatsby-image": "^2.2.3",
-    "gatsby-plugin-manifest": "^2.2.0",
-    "gatsby-plugin-offline": "^2.2.0",
-    "gatsby-plugin-react-helmet": "^3.1.0",
-    "gatsby-plugin-react-svg": "^3.0.0",
-    "gatsby-plugin-sass": "^2.2.3",
-    "gatsby-plugin-sharp": "^2.2.1",
-    "gatsby-plugin-simple-analytics": "^1.0.3",
-    "gatsby-source-filesystem": "^2.1.0",
-    "gatsby-transformer-sharp": "^2.2.0",
-    "node-sass": "^4.13.1",
-    "pixelarticons": "^1.1.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
-  },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "@11ty/eleventy": "^0.11.1",
+    "@tailwindcss/typography": "^0.4.0",
+    "alpinejs": "^2.8.0",
+    "autoprefixer": "^10.2.4",
+    "clean-css-cli": "^4.3.0",
+    "clipboard": "^2.0.6",
+    "eleventy-plugin-svg-contents": "^0.7.0",
+    "fast-glob": "^3.2.5",
+    "fs": "0.0.1-security",
+    "html-minifier": "^4.0.0",
+    "path": "^0.12.7",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.0.2"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "start": "eleventy --serve & postcss styles/tailwind.css --o _tmp/style.css --watch",
+    "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss styles/tailwind.css --o _site/style.css && cleancss _site/style.css -o _site/style.css"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/halfmage/pixelarticons-website/issues"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/halfmage/pixelarticons-website/issues"
+  },
+  "dependencies": {
+    "pixelarticons": "^1.3.0"
   }
 }
