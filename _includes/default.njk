@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="light">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <title>{{ meta.title }}</title>
@@ -10,8 +10,10 @@
     />
     <link rel="stylesheet" href="/style.css" />
     <script src="/js/alpine.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   </head>
-  <body class="font-sans bg-primary-100 dark:bg-primary-900">
+  <body class="font-sans text-black">
     {{ content | safe }}
   </body>
 </html>

@@ -2,19 +2,29 @@
 layout: default
 ---
 
-<div class="container mx-auto px-4 py-16">
-  <h1 class="text-4xl flex items-center font-bold">
-    Pixelarticons
-    <span class="inline-block text-xs border-2 border-gray-300 p-1 px-2 rounded-lg font-bold text-black ml-4">V1.1.2</span>
-  </h1>
+<div class="bg-black text-white text-center py-16 mb-8">
+  <div class="container mx-auto px-4 ">
+    <h1 class="text-5xl tracking-wider mb-4 italic font-bold">
+      Pixelarticons
+    </h1>
+    <h2 class="mb-8">Finest handmade pixelart icons based on a 24x24 grid. For retro vibes.</h2>
+    <div class="grid grid-cols-6 gap-4">
+      <a href="#" class="hover:bg-white hover:text-black bg-secon-500 text-sm py-2 px-4">Download</a>
+      <a href="#" class="hover:bg-white hover:text-black border border-white text-sm py-2 px-4">MIT License</a>
+      <a href="#" class="hover:bg-white hover:text-black border border-white text-sm py-2 px-4">Get startet</a>
+      <a href="#" class="hover:bg-white hover:text-black border border-white text-sm py-2 px-4">Github</a>
+      <a href="#" class="hover:bg-white hover:text-black border border-white text-sm py-2 px-4">NPM</a>
+      <a href="#" class="hover:bg-white hover:text-black border border-white text-sm py-2 px-4">Figma</a>
+    </div>
+  </div>
 </div>
 
 <div class="container mx-auto px-4">
-  <div class="border-l border-t border-gray-100 grid xl:grid-cols-10 md:grid-cols-8 sm:grid-cols-6 grid-cols-3">
+  <div class="grid gap-2 xl:grid-cols-10 md:grid-cols-8 sm:grid-cols-6 grid-cols-3">
     {% for icon in pixelarticons %}
-      <div class="border-b border-r border-gray-100 p-4 pb-8 inline-flex items-center justify-center flex-col text-center relative">
+      <div class="hover:bg-gray-100 cursor-pointer px-4 pt-8 pb-16 inline-flex items-center justify-center flex-col text-center relative">
         {{ icon.sourceWithClass | safe }}
-        <span class="absolute bottom-2 w-full truncate px-2" style="font-size:11px">{{ icon.nameWithoutExtension }}</span>
+        <span class="absolute bottom-8 w-full truncate px-2 text-gray-500" style="font-size:11px">{{ icon.nameWithoutExtension }}</span>
       </div>
     {% endfor %}
   </div>
