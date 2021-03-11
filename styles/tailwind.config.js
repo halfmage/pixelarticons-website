@@ -16,9 +16,6 @@ module.exports = {
       secon: colors.purple,
       gray: colors.trueGray
     },
-    fontFamily: {
-      sans: ['Space Mono', 'sans-serif'],
-    },
   },
   variants: {
     extend: {},
