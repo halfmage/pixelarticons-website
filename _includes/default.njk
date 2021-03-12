@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
   <head>
     <meta charset="UTF-8" />
     <title>{{ meta.title }}</title>
@@ -22,4 +22,21 @@
   <body class="font-sans text-black">
     {{ content | safe }}
   </body>
+
+  
+  <script src="/js/clipboard.js"></script>
+  <script>
+    var clipboard = new ClipboardJS(".icon-clip");
+
+    clipboard.on("success", function (event) {
+      console.info("Action:", event.action);
+      console.info("Text:", event.text);
+      //console.info("Trigger:", event.trigger);
+      event.clearSelection();
+      event.trigger.textContent = "Copied! 🎉";
+      window.setTimeout(function () {
+        event.trigger.textContent = "Copy SVG";
+      }, 1500);
+    });
+  </script>
 </html>
