@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ meta.title }}</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg">
+    
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- Scripts -->
+    <script src="/js/alpine.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+
+  </head>
+  <body class="font-sans bg-gray-100 text-gray-800">
+    {% include "hero.njk" %}
+    {{ content | safe }}
+
+    <div class=""></div>
+  </body>
+
+  
+  <script src="/js/clipboard.js"></script>
+  <script>
+    var clipboard = new ClipboardJS(".icon-clip");
+
+    clipboard.on("success", function (event) {
+      console.info("Action:", event.action);
+      console.info("Text:", event.text);
+      //console.info("Trigger:", event.trigger);
+      event.clearSelection();
+      event.trigger.textContent = "Copied!🎉";
+      window.setTimeout(function () {
+        event.trigger.textContent = "Copy SVG";
+      }, 1500);
+    });
+  </script>
+</html>
