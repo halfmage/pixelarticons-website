@@ -2,7 +2,8 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>{{ meta.title }}</title>
+    <title>{{ meta.title }} - {{ meta.description }}</title> 
+    {% include "meta.njk" %}
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta
       name="viewport"
