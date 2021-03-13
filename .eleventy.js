@@ -8,13 +8,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./_tmp/style.css");
 
   // Passthroughs
-  eleventyConfig.addPassthroughCopy({ "./_tmp/style.css": "./style.css" });
+  eleventyConfig.addPassthroughCopy("./node_modules/pixelarticons/svg");
+  eleventyConfig.addPassthroughCopy({"./_tmp/style.css": "./style.css"});
+  eleventyConfig.addPassthroughCopy({"./node_modules/clipboard/dist/clipboard.min.js": "./js/clipboard.js"});
   eleventyConfig.addPassthroughCopy("favicon.svg");
-
-  eleventyConfig.addPassthroughCopy({
-    "./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js",
-    "./node_modules/clipboard/dist/clipboard.min.js": "./js/clipboard.js",
-  });
 
   eleventyConfig.addPlugin(svgContents);
 
