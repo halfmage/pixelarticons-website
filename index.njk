@@ -2,60 +2,14 @@
 layout: default
 ---
 
-<div class="bg-black text-white text-center py-16 mb-8">
-  <div class="container mx-auto px-4 ">
-    <h1 class="text-4xl md:text-5xl tracking-wider mb-4 italic font-bold">
-      Pixelarticons
-    </h1>
-    <h2 class="mb-4 md:mb-8">Finest handmade pixelart icons based on a 24x24 grid. For retro vibes.</h2>
-    <div class="md:flex justify-center">
-      <a
-        href="https://github.com/halfmage/pixelarticons/archive/v1.3.0.zip"
-        target="_blank"
-        class="inline-block m-1 md:m-2 hover:bg-white hover:text-black border border-white text-sm py-2 px-4">
-        Download
-      </a>
-      <a
-        href="#"
-        target="_blank"
-        class="inline-block m-1 md:m-2 hover:bg-white hover:text-black border border-white text-sm py-2 px-4">
-        Get startet
-      </a>
-      <a
-        href="https://github.com/halfmage/pixelarticons/blob/master/LICENSE"
-        target="_blank"
-        class="inline-block m-1 md:m-2 hover:bg-white hover:text-black border border-white text-sm py-2 px-4">
-        MIT License
-      </a>
-      <a
-        href="https://github.com/halfmage/pixelarticons"
-        target="_blank"
-        class="inline-block m-1 md:m-2 hover:bg-white hover:text-black border border-white text-sm py-2 px-4">
-        Github
-      </a>
-      <a
-        href="https://www.npmjs.com/package/pixelarticons"
-        target="_blank"
-        class="inline-block m-1 md:m-2 hover:bg-white hover:text-black border border-white text-sm py-2 px-4">
-        NPM
-      </a>
-      <a
-        class="inline-block m-1 md:m-2 border border-white text-sm py-2 px-4">
-        Figma <span class="text-xs italic text-gray-500">Soon</span>
-      </a>
-    </div>
-  </div>
-</div>
-
 <div class="container mx-auto px-4">
-  <div class="grid gap-2 xl:grid-cols-10 md:grid-cols-8 sm:grid-cols-6 grid-cols-3">
+  <div class="grid xl:grid-cols-10 md:grid-cols-8 sm:grid-cols-6 grid-cols-3">
     {% for icon in pixelarticons %}
-    <div class="px-4 py-8 inline-flex items-center justify-center flex-col text-center relative">
+    <div class="px-4 py-8 inline-flex items-center justify-center flex-col text-center relative hover:bg-gray-200 group">
       {{ icon.sourceWithClass | safe }}
-      <div class="w-full truncate px-2 text-gray-500" style="font-size:11px">{{ icon.nameWithoutExtension }}</div>
-      <div class="sr-only" id="icon-{{ icon.nameWithoutExtension }}">{{ icon.name }}</div>  
-      <a href="https://raw.githubusercontent.com/halfmage/pixelarticons/master/svg/{{ icon.nameWithoutExtension }}.svg" class="flex-1 bg-gray-100 text-xs" download>Download SVG</a>
-      <button class="icon-clip flex-1 bg-gray-100 text-xs" data-clipboard-target="#icon-{{ icon.nameWithoutExtension }}">Copy SVG</button>
+      <div class="w-full truncate px-2 text-gray-500 mt-4 text-xs">{{ icon.nameWithoutExtension }}</div>
+      <div class="sr-only" id="icon-{{ icon.nameWithoutExtension }}">{{ icon.source }}</div>
+      <button class="absolute bottom-4 opacity-0 group-hover:opacity-100 icon-clip inline-flex items-center px-4 py-2 shadow-lg text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600" data-clipboard-target="#icon-{{ icon.nameWithoutExtension }}">Copy SVG</button>
     </div>
     {% endfor %}
   </div>

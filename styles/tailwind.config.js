@@ -10,15 +10,18 @@ module.exports = {
   darkMode: "media",
   theme: {
     colors: {
-      white: "#fff",
-      black: "#000",
-      prime: colors.cyan,
-      secon: colors.purple,
-      gray: colors.trueGray
+      "white": "#fff",
+      primary: colors.blue,
+      gray: colors.gray
+    },
+    fontFamily: {
+      sans: ['Source Code Pro', 'sans-serf'],
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      display: ['group-hover'],
+    },
   },
   plugins: [],
 }
