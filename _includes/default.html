@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>{{ meta.title }} - {{ meta.description }}</title> 
-    {% include "meta.njk" %}
+    {% include "meta.html" %}
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
     <!-- Favicon -->
@@ -12,14 +12,9 @@
     <!-- StyleSheet -->
     <link rel="stylesheet" href="/style.css" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet">
-
   </head>
-  <body class="font-sans bg-gray-100 text-gray-800">
-    {% include "hero.njk" %}
+  <body class="font-sans bg-white text-gray-800">
     {{ content | safe }}
-  
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
   </body>

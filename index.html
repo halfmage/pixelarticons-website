@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="grid grid-cols-8 text-center my-24">
+    {% for icon in pixelarticons %}
+      <div class="flex flex-col items-center relative h-40 cursor-pointer px-4 group">
+
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:bg-gray-200 p-4 rounded-full transition-all">
+          {{ icon.sourceWithClass | safe }}
+        </div>
+
+        <div class="text-sm absolute bottom-2 text-gray-400 group-hover:text-gray-700">
+          {{ icon.nameWithoutExtension }}
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+</div>
