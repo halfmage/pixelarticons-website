@@ -2,19 +2,54 @@
 layout: default
 ---
 
-<div class="container">
-  <div class="grid grid-cols-8 text-center my-24">
-    {% for icon in pixelarticons %}
-      <div class="flex flex-col items-center relative h-40 cursor-pointer px-4 group">
+{% include "hero.html" %}
 
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:bg-gray-200 p-4 rounded-full transition-all">
-          {{ icon.sourceWithClass | safe }}
-        </div>
+<div class="container text-center">
+  <div class="flex justify-center py-2 px-1">
+    <a href="#" class="py-3 px-4 bg-white dark:bg-gray-600 relative inline-flex flex-col justify-center items-center mx-1 w-32">
+      <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 2H22V20V22H2V20V14H4V20H8V16H10V20H14V14H16V20H20V4H10V6H8V2H10H20ZM12 12H14V14H12V12ZM10 10H12V12H10V10ZM8 10V8H10V10H8ZM6 12V10H8V12H6ZM6 12H4V14H6V12ZM16 6H18V8H16V6ZM14 6H12V8H14V6ZM16 10H18V12H16V10Z" fill="black"/>
+      </svg>
+      Line
+    </a>
+    <a href="#" class="py-3 px-4 relative inline-flex flex-col justify-center items-center mx-1 opacity-50 hover:opacity-100 w-32">
+      <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 2H22V20V22H2V20V14H4V12H6V10H8V8H10V10H12V12H14V14H16V20H18V14H16V12H18V10H16V12H14V10H12V8H14V6H12V8H10V6H8V2H10H20ZM8 16V20H10V16H8ZM18 8V6H16V8H18Z" fill="black"/>
+      </svg>        
+      Solid</a>
+    <a href="#" class="py-3 px-4 relative inline-flex flex-col justify-center items-center mx-1 opacity-50 hover:opacity-100 w-32">
+      <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M22 2H21H8H7V6H8V3H21V20H22V2ZM2 21V22H22V21H2ZM15 14H16V20H15V14ZM14 13H15V14H14V13ZM13 12H14V13H13V12ZM12 11H13V12H12V11ZM11 10H12V11H11V10ZM10 9H11V10H10V9ZM8 9V8H10V9H8ZM7 10V9H8V10H7ZM6 11V10H7V11H6ZM5 12V11H6V12H5ZM4 13V12H5V13H4ZM3 14V13H4V14H3ZM3 14V20H2V14H3ZM11 5H12V6H11V5ZM15 5H14V6H15V5ZM14 8H15V9H14V8ZM18 5H17V6H18V5ZM17 8H18V9H17V8ZM18 11H17V12H18V11ZM7 20V17V16H8H10H11V17V20H10V17H8V20H7Z" fill="black"/>
+      </svg>        
+      Thin</a>
+  </div>
+</div>
 
-        <div class="text-sm absolute bottom-2 text-gray-400 group-hover:text-gray-700">
-          {{ icon.nameWithoutExtension }}
-        </div>
+<div class="container my-16">
+  <div class="flex flex-wrap">
+    {% for icon in lineicons %}
+      <div class="flex flex-col items-center relative cursor-pointer group p-4" style="width: 5%;">
+        {{ icon.sourceWithClass | safe }}
+      </div>
+    {% endfor %}
+  </div>
+</div>
 
+<div class="container my-16">
+  <div class="flex flex-wrap">
+    {% for icon in solidicons %}
+      <div class="flex flex-col items-center relative cursor-pointer group p-4" style="width: 5%;">
+        {{ icon.sourceWithClass | safe }}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="container my-16">
+  <div class="flex flex-wrap">
+    {% for icon in thinicons %}
+      <div class="flex flex-col items-center relative cursor-pointer group p-4" style="width: 5%;">
+        {{ icon.sourceWithClass | safe }}
       </div>
     {% endfor %}
   </div>

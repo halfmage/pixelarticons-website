@@ -7,8 +7,11 @@ module.exports = {
   theme: {
     colors: {
       "white": "#fff",
-      primary: colors.blue,
+      primary: colors.indigo,
       gray: colors.slate
+    },
+    fontFamily: {
+      sans: ['Space Grotesk', 'sans-serf'],
     },
     container: {
         center: true,

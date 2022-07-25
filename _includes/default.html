@@ -11,9 +11,15 @@
     
     <!-- StyleSheet -->
     <link rel="stylesheet" href="/style.css" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet"> 
 
   </head>
-  <body class="font-sans bg-white text-gray-800">
+  <body class="font-sans bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
+    {% include "header.html" %}
     {{ content | safe }}
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
