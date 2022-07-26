@@ -4,53 +4,81 @@ layout: default
 
 {% include "hero.html" %}
 
-<div class="container text-center">
-  <div class="flex justify-center py-2 px-1">
-    <a href="#" class="py-3 px-4 bg-white dark:bg-gray-600 relative inline-flex flex-col justify-center items-center mx-1 w-32">
-      <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 2H22V20V22H2V20V14H4V20H8V16H10V20H14V14H16V20H20V4H10V6H8V2H10H20ZM12 12H14V14H12V12ZM10 10H12V12H10V10ZM8 10V8H10V10H8ZM6 12V10H8V12H6ZM6 12H4V14H6V12ZM16 6H18V8H16V6ZM14 6H12V8H14V6ZM16 10H18V12H16V10Z" fill="black"/>
-      </svg>
-      Line
+<div x-data="{ tab: window.location.hash ? window.location.hash.substring(1) : 'line' }" id="tab_wrapper" class="text-center">
+  <!-- The tabs navigation -->
+  <nav class="inline-flex justify-center p-2 mb-8">
+    <a :class="{ 'active border-primary-600': tab === 'line' }" @click.prevent="tab = 'line'; window.location.hash = 'line'" href="#" class="py-2 px-8 text-2xl flex justify-center items-center border-b-4">
+      Line <small class="text-sm uppercase bg-primary-100 text-primary-600 ml-2 py-1 px-2">Free</small>
     </a>
-    <a href="#" class="py-3 px-4 relative inline-flex flex-col justify-center items-center mx-1 opacity-50 hover:opacity-100 w-32">
-      <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 2H22V20V22H2V20V14H4V12H6V10H8V8H10V10H12V12H14V14H16V20H18V14H16V12H18V10H16V12H14V10H12V8H14V6H12V8H10V6H8V2H10H20ZM8 16V20H10V16H8ZM18 8V6H16V8H18Z" fill="black"/>
-      </svg>        
-      Solid</a>
-    <a href="#" class="py-3 px-4 relative inline-flex flex-col justify-center items-center mx-1 opacity-50 hover:opacity-100 w-32">
-      <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M22 2H21H8H7V6H8V3H21V20H22V2ZM2 21V22H22V21H2ZM15 14H16V20H15V14ZM14 13H15V14H14V13ZM13 12H14V13H13V12ZM12 11H13V12H12V11ZM11 10H12V11H11V10ZM10 9H11V10H10V9ZM8 9V8H10V9H8ZM7 10V9H8V10H7ZM6 11V10H7V11H6ZM5 12V11H6V12H5ZM4 13V12H5V13H4ZM3 14V13H4V14H3ZM3 14V20H2V14H3ZM11 5H12V6H11V5ZM15 5H14V6H15V5ZM14 8H15V9H14V8ZM18 5H17V6H18V5ZM17 8H18V9H17V8ZM18 11H17V12H18V11ZM7 20V17V16H8H10H11V17V20H10V17H8V20H7Z" fill="black"/>
-      </svg>        
-      Thin</a>
-  </div>
+    <a :class="{ 'active border-primary-600': tab === 'solid' }" @click.prevent="tab = 'solid'; window.location.hash = 'solid'" href="#" class="py-2 px-8 text-2xl flex justify-center items-center border-b-4">
+      Solid
+    </a>
+    <a :class="{ 'active border-primary-600': tab === 'thin' }" @click.prevent="tab = 'thin'; window.location.hash = 'thin'" href="#" class="py-2 px-8 text-2xl flex justify-center items-center border-b-4">
+      Thin
+    </a>
+  </nav>
+
+
+    <!-- The tabs content -->
+    <div x-cloak x-show="tab === 'line'" class="container flex flex-wrap text-primary-800 dark:text-primary-200">
+      {% for icon in lineicons %}
+        <div class="flex flex-col items-center relative cursor-pointer group p-4" style="width: 5%;">
+          {{ icon.sourceWithClass | safe }}
+        </div>
+      {% endfor %}
+      <div class="my-4 text-center w-full">
+        Preview (96/1,710 icons) - 24x24px bounding box - 2px stroke
+      </div>
+    </div>
+    <div x-cloak x-show="tab === 'solid'" class="container flex flex-wrap text-primary-800 dark:text-primary-200">
+      {% for icon in solidicons %}
+        <div class="flex flex-col items-center relative cursor-pointer group p-4" style="width: 5%;">
+          {{ icon.sourceWithClass | safe }}
+        </div>
+      {% endfor %}
+      <div class="my-4 text-center w-full">
+        Preview (96/1,710 icons) - 24x24px bounding box - filled
+      </div>
+    </div>
+    <div x-cloak x-show="tab === 'thin'" class="container flex flex-wrap text-primary-800 dark:text-primary-200">
+      {% for icon in thinicons %}
+        <div class="flex flex-col items-center relative cursor-pointer group p-4" style="width: 5%;">
+          {{ icon.sourceWithClass | safe }}
+        </div>
+      {% endfor %}
+      <div class="my-4 text-center w-full">
+        Preview (96/1,710 icons) - 24x24px bounding box - 1px stroke
+      </div>
+    </div>
+
 </div>
 
-<div class="container my-16">
-  <div class="flex flex-wrap">
-    {% for icon in lineicons %}
-      <div class="flex flex-col items-center relative cursor-pointer group p-4" style="width: 5%;">
-        {{ icon.sourceWithClass | safe }}
-      </div>
-    {% endfor %}
-  </div>
-</div>
-
-<div class="container my-16">
-  <div class="flex flex-wrap">
-    {% for icon in solidicons %}
-      <div class="flex flex-col items-center relative cursor-pointer group p-4" style="width: 5%;">
-        {{ icon.sourceWithClass | safe }}
-      </div>
-    {% endfor %}
-  </div>
-</div>
-
-<div class="container my-16">
-  <div class="flex flex-wrap">
-    {% for icon in thinicons %}
-      <div class="flex flex-col items-center relative cursor-pointer group p-4" style="width: 5%;">
-        {{ icon.sourceWithClass | safe }}
-      </div>
-    {% endfor %}
+<div class="my-16 md:my-24">
+  <div class="container flex items-center justify-center">
+    <a class="px-8 py-4 border-2 border-gray-200 m-2 text-xl inline-flex items-center font-bold" href="https://github.com/halfmage/pixelarticons" target="_blank">
+        <svg class="w-4 h-4 md:w-6 md:h-6 mr-2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M6 3h14v2h2v6h-2v8h-2V5H6V3zm8 14v-2H6V5H4v10H2v4h2v2h14v-2h-2v-2h-2zm0 0v2H4v-2h10zM8 7h8v2H8V7zm8 4H8v2h8v-2z" fill="currentColor"/>
+        </svg>
+        Github
+    </a>
+    <a class="px-8 py-4 border-2 border-gray-200 m-2 text-xl inline-flex items-center font-bold" href="https://www.npmjs.com/package/pixelarticons" target="_blank">
+        <svg class="w-4 h-4 md:w-6 md:h-6 mr-2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M8 3h8v4h6v14H2V7h6V3zm2 4h4V5h-4v2zM4 9v10h16V9H4zm4 2v6H6v-6h2zm10 0v6h-2v-6h2z" fill="currentColor"/>
+        </svg>
+        NPM
+    </a>
+    <a class="px-8 py-4 border-2 border-gray-200 m-2 text-xl inline-flex items-center font-bold" href="https://www.figma.com/community/file/952542622393317653" target="_blank">
+        <svg class="w-4 h-4 md:w-6 md:h-6 mr-2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M2 2h20v16h-5v2h-2v-2H9v2H7v-2H2V2zm5 18v2H5v-2h2zm10 0v2h2v-2h-2zm3-16H4v12h16V4zm-8 4h2v2h-2V8zm-2 4v-2h2v2h-2zm0 0v2H8v-2h2zm6 0h-2v-2h2v2zm0 0h2v2h-2v-2zM8 6H6v2h2V6z" fill="currentColor"/>
+        </svg>
+        Figma
+    </a>
+    <a class="px-8 py-4 bg-primary-600 m-2 text-xl text-white inline-flex items-center font-bold" href="https://github.com/halfmage/pixelarticons/issues/new" target="_blank">
+        <svg class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M9 2H15V4H9V2ZM9 4V6H7V4H9ZM15 4V6H17V4H15Z" fill="#fff"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7 6H3V22H21V6H17V10H15V6H9V10H7V6Z" fill="#fff"/>
+        </svg>                
+        Buy now
+    </a>
   </div>
 </div>

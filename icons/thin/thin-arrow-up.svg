@@ -1,21 +1,21 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="8.02197" y="8.16748" width="1" height="1" transform="rotate(90 8.02197 8.16748)" fill="black"/>
-<rect x="7.02197" y="9.16748" width="1" height="1" transform="rotate(90 7.02197 9.16748)" fill="black"/>
-<rect x="15.022" y="7.16748" width="1" height="1" transform="rotate(-180 15.022 7.16748)" fill="black"/>
-<rect x="16.022" y="8.16748" width="1" height="1" transform="rotate(-180 16.022 8.16748)" fill="black"/>
-<rect x="17.022" y="9.16748" width="1" height="1" transform="rotate(-180 17.022 9.16748)" fill="black"/>
-<rect x="18.022" y="10.1675" width="1" height="1" transform="rotate(-180 18.022 10.1675)" fill="black"/>
-<rect x="14.022" y="6.16748" width="1" height="1" transform="rotate(-180 14.022 6.16748)" fill="black"/>
-<rect width="1" height="1" transform="matrix(1 2.3597e-08 2.3597e-08 -1 12.022 5.16748)" fill="black"/>
-<rect width="1" height="1" transform="matrix(1 2.3597e-08 2.3597e-08 -1 10.022 6.16748)" fill="black"/>
-<rect width="1" height="1" transform="matrix(1 2.3597e-08 2.3597e-08 -1 11.022 5.16748)" fill="black"/>
-<rect width="1" height="1" transform="matrix(1 2.3597e-08 2.3597e-08 -1 9.02197 7.16748)" fill="black"/>
-<rect width="1" height="1" transform="matrix(1 2.3597e-08 2.3597e-08 -1 8.02197 8.16748)" fill="black"/>
-<rect x="13.022" y="14.1675" width="2" height="1" transform="rotate(-180 13.022 14.1675)" fill="black"/>
-<rect x="13.022" y="8.16748" width="2" height="1" transform="rotate(-180 13.022 8.16748)" fill="black"/>
-<rect x="13.022" y="16.1675" width="2" height="1" transform="rotate(-180 13.022 16.1675)" fill="black"/>
-<rect x="13.022" y="10.1675" width="2" height="1" transform="rotate(-180 13.022 10.1675)" fill="black"/>
-<rect x="13.022" y="18.1675" width="2" height="1" transform="rotate(-180 13.022 18.1675)" fill="black"/>
-<rect x="13.022" y="20.1675" width="2" height="1" transform="rotate(-180 13.022 20.1675)" fill="black"/>
-<rect x="13.022" y="12.1675" width="2" height="1" transform="rotate(-180 13.022 12.1675)" fill="black"/>
+<rect x="8.02197" y="8.16748" width="1" height="1" transform="rotate(90 8.02197 8.16748)" fill="currentColor"/>
+<rect x="7.02197" y="9.16748" width="1" height="1" transform="rotate(90 7.02197 9.16748)" fill="currentColor"/>
+<rect x="15.022" y="7.16748" width="1" height="1" transform="rotate(-180 15.022 7.16748)" fill="currentColor"/>
+<rect x="16.022" y="8.16748" width="1" height="1" transform="rotate(-180 16.022 8.16748)" fill="currentColor"/>
+<rect x="17.022" y="9.16748" width="1" height="1" transform="rotate(-180 17.022 9.16748)" fill="currentColor"/>
+<rect x="18.022" y="10.1675" width="1" height="1" transform="rotate(-180 18.022 10.1675)" fill="currentColor"/>
+<rect x="14.022" y="6.16748" width="1" height="1" transform="rotate(-180 14.022 6.16748)" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(1 2.3597e-08 2.3597e-08 -1 12.022 5.16748)" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(1 2.3597e-08 2.3597e-08 -1 10.022 6.16748)" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(1 2.3597e-08 2.3597e-08 -1 11.022 5.16748)" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(1 2.3597e-08 2.3597e-08 -1 9.02197 7.16748)" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(1 2.3597e-08 2.3597e-08 -1 8.02197 8.16748)" fill="currentColor"/>
+<rect x="13.022" y="14.1675" width="2" height="1" transform="rotate(-180 13.022 14.1675)" fill="currentColor"/>
+<rect x="13.022" y="8.16748" width="2" height="1" transform="rotate(-180 13.022 8.16748)" fill="currentColor"/>
+<rect x="13.022" y="16.1675" width="2" height="1" transform="rotate(-180 13.022 16.1675)" fill="currentColor"/>
+<rect x="13.022" y="10.1675" width="2" height="1" transform="rotate(-180 13.022 10.1675)" fill="currentColor"/>
+<rect x="13.022" y="18.1675" width="2" height="1" transform="rotate(-180 13.022 18.1675)" fill="currentColor"/>
+<rect x="13.022" y="20.1675" width="2" height="1" transform="rotate(-180 13.022 20.1675)" fill="currentColor"/>
+<rect x="13.022" y="12.1675" width="2" height="1" transform="rotate(-180 13.022 12.1675)" fill="currentColor"/>
 </svg>

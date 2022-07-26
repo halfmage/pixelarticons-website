@@ -1,9 +1,9 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M14 3H10V4H14V3ZM14 10H12.5H11.5H10V11H11.5V20H6V21H11.5H12.5H18V20H12.5V11H14V10ZM8 5H9V9H8V5ZM16 5H15V9H16V5ZM4 13H5H8V14H5V19H4V14V13ZM20 19V14V13H19H16V14H19V19H20Z" fill="black"/>
-<rect x="18" y="19" width="1" height="1" fill="black"/>
-<rect x="5" y="19" width="1" height="1" fill="black"/>
-<rect x="9" y="4" width="1" height="1" fill="black"/>
-<rect x="14" y="4" width="1" height="1" fill="black"/>
-<rect x="14" y="9" width="1" height="1" fill="black"/>
-<rect x="9" y="9" width="1" height="1" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14 3H10V4H14V3ZM14 10H12.5H11.5H10V11H11.5V20H6V21H11.5H12.5H18V20H12.5V11H14V10ZM8 5H9V9H8V5ZM16 5H15V9H16V5ZM4 13H5H8V14H5V19H4V14V13ZM20 19V14V13H19H16V14H19V19H20Z" fill="currentColor"/>
+<rect x="18" y="19" width="1" height="1" fill="currentColor"/>
+<rect x="5" y="19" width="1" height="1" fill="currentColor"/>
+<rect x="9" y="4" width="1" height="1" fill="currentColor"/>
+<rect x="14" y="4" width="1" height="1" fill="currentColor"/>
+<rect x="14" y="9" width="1" height="1" fill="currentColor"/>
+<rect x="9" y="9" width="1" height="1" fill="currentColor"/>
 </svg>

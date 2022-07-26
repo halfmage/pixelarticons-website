@@ -7,6 +7,11 @@ module.exports = function (eleventyConfig) {
   // Custom files
   eleventyConfig.addWatchTarget("./_tmp/style.css");
 
+  // Alpine JS
+  eleventyConfig.addPassthroughCopy({
+    './node_modules/alpinejs/dist/cdn.min.js': './js/alpine.js',
+  })
+
   // Passthroughs
   eleventyConfig.addPassthroughCopy("social.jpg");
   eleventyConfig.addPassthroughCopy("./node_modules/pixelarticons/svg");

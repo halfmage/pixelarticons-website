@@ -1,10 +1,10 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="2" y="4" width="20" height="1" fill="black"/>
-<rect x="2" y="19" width="20" height="1" fill="black"/>
-<rect x="2" y="5" width="1" height="14" fill="black"/>
-<rect x="21" y="5" width="1" height="14" fill="black"/>
-<rect x="5" y="7" width="4" height="1" fill="black"/>
-<rect x="19" y="17" width="4" height="1" transform="rotate(-180 19 17)" fill="black"/>
-<rect x="5" y="8" width="1" height="3" fill="black"/>
-<rect x="19" y="16" width="1" height="3" transform="rotate(-180 19 16)" fill="black"/>
+<rect x="2" y="4" width="20" height="1" fill="currentColor"/>
+<rect x="2" y="19" width="20" height="1" fill="currentColor"/>
+<rect x="2" y="5" width="1" height="14" fill="currentColor"/>
+<rect x="21" y="5" width="1" height="14" fill="currentColor"/>
+<rect x="5" y="7" width="4" height="1" fill="currentColor"/>
+<rect x="19" y="17" width="4" height="1" transform="rotate(-180 19 17)" fill="currentColor"/>
+<rect x="5" y="8" width="1" height="3" fill="currentColor"/>
+<rect x="19" y="16" width="1" height="3" transform="rotate(-180 19 16)" fill="currentColor"/>
 </svg>
