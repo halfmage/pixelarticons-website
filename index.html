@@ -7,47 +7,49 @@ layout: default
 <div x-data="{ tab: window.location.hash ? window.location.hash.substring(1) : 'line' }" id="tab_wrapper" class="text-center">
   <!-- The tabs navigation -->
   <nav class="inline-flex justify-center p-2 mb-8">
-    <a :class="{ 'active border-primary-600': tab === 'line' }" @click.prevent="tab = 'line'; window.location.hash = 'line'" href="#" class="py-2 px-8 text-2xl flex justify-center items-center border-b-4">
+    <a :class="{ 'active border-primary-600': tab === 'line' }" @click.prevent="tab = 'line'; window.location.hash = 'line'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
       Line <small class="text-sm uppercase bg-primary-100 text-primary-600 ml-2 py-1 px-2">Free</small>
     </a>
-    <a :class="{ 'active border-primary-600': tab === 'solid' }" @click.prevent="tab = 'solid'; window.location.hash = 'solid'" href="#" class="py-2 px-8 text-2xl flex justify-center items-center border-b-4">
+    <a :class="{ 'active border-primary-600': tab === 'solid' }" @click.prevent="tab = 'solid'; window.location.hash = 'solid'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
       Solid
     </a>
-    <a :class="{ 'active border-primary-600': tab === 'thin' }" @click.prevent="tab = 'thin'; window.location.hash = 'thin'" href="#" class="py-2 px-8 text-2xl flex justify-center items-center border-b-4">
+    <a :class="{ 'active border-primary-600': tab === 'thin' }" @click.prevent="tab = 'thin'; window.location.hash = 'thin'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
       Thin
     </a>
   </nav>
 
 
     <!-- The tabs content -->
-    <div x-cloak x-show="tab === 'line'" class="container flex flex-wrap text-primary-800 dark:text-primary-200">
-      {% for icon in lineicons %}
-        <div class="flex flex-col items-center relative cursor-pointer group p-4" style="width: 5%;">
-          {{ icon.sourceWithClass | safe }}
+    <div class="border-2 border-primary-100 container p-0">
+      <div x-cloak x-show="tab === 'line'" class="flex flex-wrap justify-center text-primary-800 dark:text-primary-200">
+        {% for icon in lineicons %}
+          <div class="p-3">
+            {{ icon.sourceWithClass | safe }}
+          </div>
+        {% endfor %}
+        <div class="my-4 text-center w-full">
+          Preview (96/1,710 icons) - 24x24px bounding box - 2px stroke
         </div>
-      {% endfor %}
-      <div class="my-4 text-center w-full">
-        Preview (96/1,710 icons) - 24x24px bounding box - 2px stroke
       </div>
-    </div>
-    <div x-cloak x-show="tab === 'solid'" class="container flex flex-wrap text-primary-800 dark:text-primary-200">
-      {% for icon in solidicons %}
-        <div class="flex flex-col items-center relative cursor-pointer group p-4" style="width: 5%;">
-          {{ icon.sourceWithClass | safe }}
+      <div x-cloak x-show="tab === 'solid'" class="flex flex-wrap justify-center text-primary-800 dark:text-primary-200">
+        {% for icon in solidicons %}
+          <div class="p-3">
+            {{ icon.sourceWithClass | safe }}
+          </div>
+        {% endfor %}
+        <div class="my-4 text-center w-full">
+          Preview (96/1,710 icons) - 24x24px bounding box - filled
         </div>
-      {% endfor %}
-      <div class="my-4 text-center w-full">
-        Preview (96/1,710 icons) - 24x24px bounding box - filled
       </div>
-    </div>
-    <div x-cloak x-show="tab === 'thin'" class="container flex flex-wrap text-primary-800 dark:text-primary-200">
-      {% for icon in thinicons %}
-        <div class="flex flex-col items-center relative cursor-pointer group p-4" style="width: 5%;">
-          {{ icon.sourceWithClass | safe }}
+      <div x-cloak x-show="tab === 'thin'" class="flex flex-wrap justify-center text-primary-800 dark:text-primary-200">
+        {% for icon in thinicons %}
+          <div class="p-3">
+            {{ icon.sourceWithClass | safe }}
+          </div>
+        {% endfor %}
+        <div class="my-4 text-center w-full">
+          Preview (96/1,710 icons) - 24x24px bounding box - 1px stroke
         </div>
-      {% endfor %}
-      <div class="my-4 text-center w-full">
-        Preview (96/1,710 icons) - 24x24px bounding box - 1px stroke
       </div>
     </div>
 
@@ -82,3 +84,5 @@ layout: default
     </a>
   </div>
 </div>
+
+{% include "content.html" %}
