@@ -6,7 +6,7 @@ layout: default
 
 <div x-data="{ tab: window.location.hash ? window.location.hash.substring(1) : 'line' }" id="tab_wrapper" class="text-center">
   <!-- The tabs navigation -->
-  <nav class="inline-flex justify-center p-2 mb-8">
+  <nav class="inline-flex justify-center mt-8 md:mt-12 -mb-[1px]">
     <a :class="{ 'active border-primary-600': tab === 'line' }" @click.prevent="tab = 'line'; window.location.hash = 'line'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
       Line <small class="text-sm uppercase bg-primary-100 text-primary-600 ml-2 py-1 px-2">Free</small>
     </a>
