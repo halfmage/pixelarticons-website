@@ -20,8 +20,8 @@ layout: default
 
 
     <!-- The tabs content -->
-    <div class="border-2 border-primary-100 container p-0">
-      <div x-cloak x-show="tab === 'line'" class="flex flex-wrap justify-center text-primary-800 dark:text-primary-200">
+    <div class="border-2 border-gray-100 container">
+      <div x-cloak x-show="tab === 'line'" class="flex flex-wrap justify-center text-gray-800 dark:text-primary-200">
         {% for icon in lineicons %}
           <div class="p-3">
             {{ icon.sourceWithClass | safe }}
@@ -31,7 +31,7 @@ layout: default
           Preview (96/1,710 icons) - 24x24px bounding box - 2px stroke
         </div>
       </div>
-      <div x-cloak x-show="tab === 'solid'" class="flex flex-wrap justify-center text-primary-800 dark:text-primary-200">
+      <div x-cloak x-show="tab === 'solid'" class="flex flex-wrap justify-center text-gray-800 dark:text-primary-200">
         {% for icon in solidicons %}
           <div class="p-3">
             {{ icon.sourceWithClass | safe }}
@@ -41,7 +41,7 @@ layout: default
           Preview (96/1,710 icons) - 24x24px bounding box - filled
         </div>
       </div>
-      <div x-cloak x-show="tab === 'thin'" class="flex flex-wrap justify-center text-primary-800 dark:text-primary-200">
+      <div x-cloak x-show="tab === 'thin'" class="flex flex-wrap justify-center text-gray-800 dark:text-primary-200">
         {% for icon in thinicons %}
           <div class="p-3">
             {{ icon.sourceWithClass | safe }}
