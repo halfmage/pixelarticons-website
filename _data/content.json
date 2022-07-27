@@ -35,11 +35,6 @@
         "text": "There are no extra layers or forms. SVG outputs are designed to be infinitely scaleable, have a small file size, and have no extraneous properties."
     },
     {
-        "svg": "M8 4h36v32H12v4H8v-4h4v-4h28V8H8v36H4V4h4Zm10 14h-4v4h4v-4Zm4 0h4v4h-4v-4Zm12 0h-4v4h4v-4Z",
-        "title": "Crafted by professionals",
-        "text": "I created our own icon collection because I couldn't find one I liked. Each icon is carefully created with great care to detail."
-    },
-    {
         "svg": "M18 4h-8v4H6v4H2v12h4v4h4v4h4v4h4v4h4v4h4v-4h4v-4h4v-4h4v-4h4v-4h4V12h-4V8h-4V4h-8v4h-4v4h-4V8h-4V4Zm0 4v4h4v4h4v-4h4V8h8v4h4v12h-4v4h-4v4h-4v4h-4v4h-4v-4h-4v-4h-4v-4h-4v-4H6V12h4V8h8Z",
         "title": "Lifetime updates",
         "text": "No paid upgrades or subscriptions. Pay once, receive updates for life. In addition you can request new icons via mail or GitHub!"
