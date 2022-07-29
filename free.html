@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<div class="bg-gray-900 text-white">
+    <div class="container pb-16 md:pb-24 pt-16">
+        <div class="flex flex-col items-center text-center">
+        <div class="uppercase tracking-widest text-sm text-primary-400 font-medium">Pixelarticons Free</div>
+        <h1 class="text-2xl md:text-4xl font-bold my-4 tracking-wider uppercase">474 Free & open-source icons</h1>
+        <h2 class="md:text-xl font-extralight text-gray-200 max-w-screen-md">
+            474 open-source line pixel-art style icons, in one color and made with a 24x24px grid by Gerrit Halfmann. Full pack with 1422 icons in 3 variants.
+        </h2>
+        <div class="mt-8 flex flex-col md:flex-row items-center justify-center">
+            <a class="transition-colors px-4 py-3 w-full md:w-auto bg-white/20 hover:bg-white/30 m-2 inline-flex items-center justify-center font-bold" href="https://github.com/halfmage/pixelarticons" target="_blank">
+                <svg class="w-6 h-6 mr-2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M6 3h14v2h2v6h-2v8h-2V5H6V3zm8 14v-2H6V5H4v10H2v4h2v2h14v-2h-2v-2h-2zm0 0v2H4v-2h10zM8 7h8v2H8V7zm8 4H8v2h8v-2z" fill="currentColor"/>
+                </svg>
+                Github
+            </a>
+            <a class="transition-colors px-4 py-3 w-full md:w-auto bg-white/20 hover:bg-white/30 m-2 inline-flex items-center justify-center font-bold" href="https://www.npmjs.com/package/pixelarticons" target="_blank">
+                <svg class="w-6 h-6 mr-2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M8 3h8v4h6v14H2V7h6V3zm2 4h4V5h-4v2zM4 9v10h16V9H4zm4 2v6H6v-6h2zm10 0v6h-2v-6h2z" fill="currentColor"/>
+                </svg>
+                NPM
+            </a>
+            <a class="transition-colors px-4 py-3 w-full md:w-auto bg-white/20 hover:bg-white/30 m-2 inline-flex items-center justify-center font-bold" href="https://www.figma.com/community/file/952542622393317653" target="_blank">
+                <svg class="w-6 h-6 mr-2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M2 2h20v16h-5v2h-2v-2H9v2H7v-2H2V2zm5 18v2H5v-2h2zm10 0v2h2v-2h-2zm3-16H4v12h16V4zm-8 4h2v2h-2V8zm-2 4v-2h2v2h-2zm0 0v2H8v-2h2zm6 0h-2v-2h2v2zm0 0h2v2h-2v-2zM8 6H6v2h2V6z" fill="currentColor"/>
+                </svg>
+                Figma
+            </a>
+            <a class="transition-colors px-4 py-3 w-full md:w-auto bg-primary-600 hover:bg-primary-700 m-2 text-white inline-flex items-center justify-center font-bold" href="https://github.com/halfmage/pixelarticons/issues/new" target="_blank">
+                <svg class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 2H15V4H9V2ZM9 4V6H7V4H9ZM15 4V6H17V4H15Z" fill="#fff"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7 6H3V22H21V6H17V10H15V6H9V10H7V6Z" fill="#fff"/>
+                </svg>                
+                Buy now
+            </a>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="container my-16">
+        <div class="grid xl:grid-cols-11 md:grid-cols-8 sm:grid-cols-6 grid-cols-3">
+          {% for icon in pixelarticons %}
+          <div class="px-2 py-8 inline-flex items-center justify-center flex-col text-center relative hover:bg-gray-200 group">
+            {{ icon.sourceWithClass | safe }}
+            <div class="w-full truncate px-2 text-gray-500 mt-4 text-xs">{{ icon.nameWithoutExtension }}</div>
+            <div class="sr-only" id="icon-{{ icon.nameWithoutExtension }}">{{ icon.source }}</div>
+            <button class="absolute bottom-4 opacity-0 group-hover:opacity-100 icon-clip inline-flex items-center px-4 py-2 shadow-lg text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600" data-clipboard-target="#icon-{{ icon.nameWithoutExtension }}">Copy SVG</button>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
