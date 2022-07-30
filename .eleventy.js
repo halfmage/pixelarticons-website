@@ -7,8 +7,13 @@ module.exports = function (eleventyConfig) {
   // Custom files
   eleventyConfig.addWatchTarget("./_tmp/style.css");
 
+  // Alpine JS
+  eleventyConfig.addPassthroughCopy({
+    './node_modules/alpinejs/dist/cdn.min.js': './js/alpine.js',
+  })
+
   // Passthroughs
-  eleventyConfig.addPassthroughCopy("social.jpg");
+  eleventyConfig.addPassthroughCopy("social.png");
   eleventyConfig.addPassthroughCopy("./node_modules/pixelarticons/svg");
   eleventyConfig.addPassthroughCopy({"./_tmp/style.css": "./style.css"});
   eleventyConfig.addPassthroughCopy({"./node_modules/clipboard/dist/clipboard.min.js": "./js/clipboard.js"});
@@ -31,5 +36,9 @@ module.exports = function (eleventyConfig) {
     }
 
     return content;
-  });
+  })
+  
+  return {
+    htmlTemplateEngine: "njk"
+  };
 };

@@ -1,0 +1,28 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="4" y="2" width="16" height="1" fill="currentColor"/>
+<rect x="4" y="21" width="16" height="1" fill="currentColor"/>
+<rect x="5" y="3" width="1" height="4" fill="currentColor"/>
+<rect width="1" height="4" transform="matrix(-1 0 0 1 19 3)" fill="currentColor"/>
+<rect width="1" height="4" transform="matrix(1 0 0 -1 5 21)" fill="currentColor"/>
+<rect x="19" y="21" width="1" height="4" transform="rotate(-180 19 21)" fill="currentColor"/>
+<rect x="6" y="7" width="1" height="1" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(-1 0 0 1 18 7)" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(1 0 0 -1 6 17)" fill="currentColor"/>
+<rect x="18" y="17" width="1" height="1" transform="rotate(-180 18 17)" fill="currentColor"/>
+<rect x="7" y="8" width="1" height="1" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(-1 0 0 1 17 8)" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(1 0 0 -1 7 16)" fill="currentColor"/>
+<rect x="17" y="16" width="1" height="1" transform="rotate(-180 17 16)" fill="currentColor"/>
+<rect x="8" y="9" width="1" height="1" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(-1 0 0 1 16 9)" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(1 0 0 -1 8 15)" fill="currentColor"/>
+<rect x="16" y="15" width="1" height="1" transform="rotate(-180 16 15)" fill="currentColor"/>
+<rect x="9" y="10" width="1" height="1" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(-1 0 0 1 15 10)" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(1 0 0 -1 9 14)" fill="currentColor"/>
+<rect x="15" y="14" width="1" height="1" transform="rotate(-180 15 14)" fill="currentColor"/>
+<rect x="10" y="11" width="1" height="1" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(-1 0 0 1 14 11)" fill="currentColor"/>
+<rect x="10" y="12" width="1" height="1" fill="currentColor"/>
+<rect width="1" height="1" transform="matrix(-1 0 0 1 14 12)" fill="currentColor"/>
+</svg>

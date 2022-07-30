@@ -1,26 +1,27 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  purge: {
-    content: ["_site/**/*.html"],
-    options: {
-      whitelist: [],
-    },
-  },
+  content: ['_site/**/*.html'],
+  safelist: [],
   darkMode: "media",
   theme: {
     colors: {
       "white": "#fff",
-      primary: colors.blue,
-      gray: colors.gray
+      primary: colors.cyan,
+      gray: colors.slate
     },
     fontFamily: {
-      sans: ['Source Code Pro', 'sans-serf'],
+      sans: ['Space Grotesk', 'sans-serf'],
     },
-  },
-  variants: {
-    extend: {
-      display: ['group-hover'],
+    container: {
+        center: true,
+        padding: {
+            DEFAULT: '1rem',
+            sm: '2rem',
+            lg: '4rem',
+            xl: '4rem',
+            '2xl': '4rem',
+            },
     },
   },
   plugins: [],

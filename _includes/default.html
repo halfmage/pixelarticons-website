@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ meta.title }} - {{ meta.description }}</title> 
+    {% include "meta.html" %}
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg">
+    
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/js/alpine.js" defer></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet"> 
+
+    <!-- Gumroad -->
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+
+  </head>
+  <body class="font-sans bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
+    {% include "header.html" %}
+    {{ content | safe }}
+    {% include "footer.html" %}
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+  </body>
+  
+  <script src="/js/clipboard.js"></script>
+  <script>
+    var clipboard = new ClipboardJS(".icon-clip");
+
+    clipboard.on("success", function (event) {
+      console.info("Action:", event.action);
+      console.info("Text:", event.text);
+      //console.info("Trigger:", event.trigger);
+      event.clearSelection();
+      event.trigger.textContent = "Copied!🎉";
+      window.setTimeout(function () {
+        event.trigger.textContent = "Copy SVG";
+      }, 1500);
+    });
+  </script>
+</html>

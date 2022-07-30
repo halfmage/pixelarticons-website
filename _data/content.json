@@ -1,0 +1,42 @@
+[
+    {
+        "svg": "M10 4h32v40H6V4h4Zm28 36V8H10v32h28ZM26 12H14v4h12v-4Zm-12 8h20v16H14V20Z",
+        "title": "Crafted for non-standard UI design projects",
+        "text": "Designed primarily for unconventional, brutal, or minimalist websites."
+    },
+    {
+        "svg": "M36 4H12V8H36V4ZM8 12H40V16H8V12ZM4 20H8H40H44V44H40H8H4V20ZM40 40V24H8V40H40Z",
+        "title": "Made in Figma, useful everywhere",
+        "text": "Completely compatible with the newest 2022 component properties and override features of Figma."
+    },
+    {
+        "svg": "M42 12H14v32h16v-4h4v-4h-4v-4h4v4h4v-4h4V12ZM18 40V16h20v12H26v12h-8ZM6 36h4V8h24V4H6v32Z",
+        "title": "2px stroke weight default",
+        "text": "For aesthetically balanced icons across sizes, the default stroke weight is 2px. As an alternative we offer a thing 1px stroke weight version."
+    },
+    {
+        "svg": "M40 34v-4H16v-4h4v-4h-4v4h-4v4H8v4h4v4h4v4h4v-4h-4v-4h24ZM8 18v-4h24v-4h4v4h4v4h-4v4h-4v-4H8Zm24 4h-4v4h4v-4Zm0-12h-4V6h4v4Z",
+        "title": "1,422+ and counting",
+        "text": "Packed of everything you need to create unconventional user interfaces and websites."
+    },
+    {
+        "svg": "M4 10h28v8h4v-4h4v-4h4v28h-4v-4h-4v-4h-4v8H4V10Zm4 24h20V14H8v20Z",
+        "title": "3+ flexible styles",
+        "text": "Choose between line, solid or thin icon styles. In the future, there will be more style available for free!"
+    },
+    {
+        "svg": "M4 6H0v36h48V6H4Zm40 4v28H4V10h40Zm-24 4h-8v8h8v-8ZM8 26h16v8H8v-8Zm32-12H28v4h12v-4Zm-12 8h12v4H28v-4Zm12 8H28v4h12v-4Z",
+        "title": "Use in countless projects",
+        "text": "This is how we intended it to work—to be the most impartial, adaptable, and scalable library that could be used for any project."
+    },
+    {
+        "svg": "M36 4h4v40H8V12h4v28h24V8H16V4h20ZM16 8h-4v4h4V8Zm12 4h4v8h-4v-8Zm-4 0h-4v8h4v-8Z",
+        "title": "Optimized SVG output",
+        "text": "There are no extra layers or forms. SVG outputs are designed to be infinitely scaleable, have a small file size, and have no extraneous properties."
+    },
+    {
+        "svg": "M18 4h-8v4H6v4H2v12h4v4h4v4h4v4h4v4h4v4h4v-4h4v-4h4v-4h4v-4h4v-4h4V12h-4V8h-4V4h-8v4h-4v4h-4V8h-4V4Zm0 4v4h4v4h4v-4h4V8h8v4h4v12h-4v4h-4v4h-4v4h-4v4h-4v-4h-4v-4h-4v-4h-4v-4H6V12h4V8h8Z",
+        "title": "Lifetime updates",
+        "text": "No paid upgrades or subscriptions. Pay once, receive updates for life. In addition you can request new icons via mail or GitHub!"
+    }
+]
