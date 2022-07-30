@@ -13,7 +13,7 @@ module.exports = function (eleventyConfig) {
   })
 
   // Passthroughs
-  eleventyConfig.addPassthroughCopy("social.jpg");
+  eleventyConfig.addPassthroughCopy("social.png");
   eleventyConfig.addPassthroughCopy("./node_modules/pixelarticons/svg");
   eleventyConfig.addPassthroughCopy({"./_tmp/style.css": "./style.css"});
   eleventyConfig.addPassthroughCopy({"./node_modules/clipboard/dist/clipboard.min.js": "./js/clipboard.js"});
