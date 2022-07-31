@@ -7,20 +7,20 @@ layout: default
 <div x-data="{ tab: window.location.hash ? window.location.hash.substring(1) : 'line' }" id="tab_wrapper" class="text-center">
   <!-- The tabs navigation -->
   <nav class="inline-flex justify-center my-8">
-    <a :class="{ 'active border-primary-500': tab === 'line' }" @click.prevent="tab = 'line'; window.location.hash = 'line'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
-      Line <small class="text-sm uppercase bg-primary-100 text-primary-500 ml-2 py-1 px-2">Free</small>
+    <a :class="{ 'active border-primary-500 text-primary-400': tab === 'line' }" @click.prevent="tab = 'line'; window.location.hash = 'line'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
+      Line <small class="text-sm uppercase bg-primary-100 dark:bg-primary-900 text-primary-500 ml-2 py-1 px-2">Free</small>
     </a>
-    <a :class="{ 'active border-primary-500': tab === 'solid' }" @click.prevent="tab = 'solid'; window.location.hash = 'solid'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
+    <a :class="{ 'active border-primary-500 text-primary-400': tab === 'solid' }" @click.prevent="tab = 'solid'; window.location.hash = 'solid'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
       Solid
     </a>
-    <a :class="{ 'active border-primary-500': tab === 'thin' }" @click.prevent="tab = 'thin'; window.location.hash = 'thin'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
+    <a :class="{ 'active border-primary-500 text-primary-400': tab === 'thin' }" @click.prevent="tab = 'thin'; window.location.hash = 'thin'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
       Thin
     </a>
   </nav>
 
 
     <!-- The tabs content -->
-    <div class="border-2 border-gray-100 container">
+    <div class="border-2 border-gray-100 dark:border-gray-700 container">
       <div x-cloak x-show="tab === 'line'" class="flex flex-wrap justify-center text-gray-800 dark:text-primary-200">
         {% for icon in lineicons %}
           <div class="p-3">
