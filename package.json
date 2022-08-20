@@ -29,6 +29,6 @@
     "url": "https://github.com/halfmage/pixelarticons-website/issues"
   },
   "dependencies": {
-    "pixelarticons": "^1.6.0"
+    "pixelarticons": "^1.7.0"
   }
 }
