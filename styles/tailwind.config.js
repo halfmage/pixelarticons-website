@@ -11,7 +11,7 @@ module.exports = {
       gray: colors.slate
     },
     fontFamily: {
-      sans: ['Space Grotesk', 'sans-serf'],
+      pixel: ['"Press Start 2P"', 'sans-serf'],
     },
     container: {
         center: true,
