@@ -12,7 +12,7 @@ module.exports = function () {
         const source = fs.readFileSync(path.resolve(iconFolder, name), {
           encoding: "utf8",
         });
-        const sourceWithClass = source.replace("<svg", '<svg class="w-6 md:w-12 h-6 md:h-12"');
+        const sourceWithClass = source.replace("<svg", '<svg class="w-6 h-6 md:w-12 md:h-12"');
         return { name, source, sourceWithClass, nameWithoutExtension };
       })
     );
