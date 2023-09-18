@@ -8,7 +8,7 @@ module.exports = {
     colors: {
       "white": "#fff",
       primary: colors.cyan,
-      gray: colors.slate
+      gray: colors.neutral
     },
     fontFamily: {
       pixel: ['"Press Start 2P"', 'sans-serf'],
