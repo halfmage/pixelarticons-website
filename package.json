@@ -5,16 +5,16 @@
   "author": "Gerrit Halfmann <gerrit@gerrithalfmann.com>",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "@tailwindcss/typography": "^0.5.2",
-    "alpinejs": "^3.10.3",
+    "@tailwindcss/typography": "^0.5.12",
+    "alpinejs": "^3.13.7",
     "clean-css-cli": "^4.3.0",
-    "clipboard": "^2.0.8",
+    "clipboard": "^2.0.11",
     "eleventy-plugin-svg-contents": "^0.7.0",
-    "fast-glob": "^3.2.5",
+    "fast-glob": "^3.3.2",
     "fs": "0.0.1-security",
     "html-minifier": "^4.0.0",
     "path": "^0.12.7",
-    "tailwindcss": "^3.0.23"
+    "tailwindcss": "^3.4.3"
   },
   "license": "MIT",
   "scripts": {
@@ -29,6 +29,6 @@
     "url": "https://github.com/halfmage/pixelarticons-website/issues"
   },
   "dependencies": {
-    "pixelarticons": "^1.7.0"
+    "pixelarticons": "^1.8.0"
   }
 }
