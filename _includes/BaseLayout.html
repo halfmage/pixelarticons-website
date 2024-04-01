@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ meta.title }} - {{ meta.description }}</title> 
+    {% include "meta.html" %}
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg">
+    
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/js/alpine.js" defer></script>
+
+    <!-- Gumroad -->
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+
+  </head>
+  <body class="bg-[#008081] flex items-center justify-center min-h-screen font-pixel relative p-4">
+
+    <div class="bg-[#C1C1C1] overflow-hidden flex flex-col p-1 max-w-screen-2xl md:h-[calc(100vh-64px)]">
+
+        <header class="bg-[#000279] py-4 px-6 text-white md:flex items-center justify-between text-2xl tracking-[1px]">
+            <h1 class="">Pixelarticons 1.8.0</h1>
+            <nav>
+                <a class="hover:opacity-50" href="#">Github</a>
+                <a class="ml-2 hover:opacity-50" href="#">NPM</a>
+                <a class="ml-2 hover:opacity-50" href="#">Figma</a>
+                <a class="ml-2 hover:opacity-50" href="#">Buy now</a>
+            </nav>
+        </header>
+
+        <div class="md:flex items-stretch border-2 border-gray-400 overflow-hidden">
+            <div class="md:w-1/3 border-r border-gray-400 p-6 flex-shrink-0">
+                <h1 class="text-4xl md:text-5xl tracking-[1px]">Not your standard vector icons</h1>
+            </div>
+            <div class="grid grid-cols-6 overflow-auto">
+                {% for icon in pixelarticons %}
+                <div class="px-1 py-6 inline-flex items-center justify-center flex-col text-center relative hover:bg-gray-200 dark:hover:bg-white/10 group">
+                {{ icon.sourceWithClass | safe }}
+                <div class="w-full truncate px-2 text-gray-700 mt-4 text-sm tracking-wider">{{ icon.nameWithoutExtension }}</div>
+                <div class="sr-only" id="icon-{{ icon.nameWithoutExtension }}">{{ icon.source }}</div>
+                <button class="absolute bottom-4 opacity-0 group-hover:opacity-100 icon-clip inline-flex items-center px-4 py-2 shadow-lg text-sm font-medium text-white bg-primary-600 hover:bg-primary-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600" data-clipboard-target="#icon-{{ icon.nameWithoutExtension }}">Copy SVG</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+  </body>
+  
+  <script src="/js/clipboard.js"></script>
+  <script>
+    var clipboard = new ClipboardJS(".icon-clip");
+
+    clipboard.on("success", function (event) {
+      console.info("Action:", event.action);
+      console.info("Text:", event.text);
+      //console.info("Trigger:", event.trigger);
+      event.clearSelection();
+      event.trigger.textContent = "Copied!🎉";
+      window.setTimeout(function () {
+        event.trigger.textContent = "Copy SVG";
+      }, 1500);
+    });
+  </script>
+</html>

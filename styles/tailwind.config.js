@@ -8,10 +8,13 @@ module.exports = {
     colors: {
       "white": "#fff",
       primary: colors.cyan,
-      gray: colors.neutral
+      gray: colors.neutral,
+      violet: colors.violet,
+      cyan: colors.cyan,
+      blue: colors.blue
     },
     fontFamily: {
-      pixel: ['"Press Start 2P"', 'sans-serf'],
+      pixel: ['"Superstar"', 'sans-serf'],
     },
     container: {
         center: true,
