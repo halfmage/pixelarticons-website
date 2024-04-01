@@ -17,31 +17,55 @@
         <script src="https://gumroad.com/js/gumroad.js"></script>
     </head>
 
-    <body class="bg-[#008081] flex items-center justify-center min-h-screen font-pixel relative p-4">
+    <body class="bg-gray-200 flex items-center justify-center min-h-screen relative p-2 md:p-4">
 
-        <div class="bg-[#C1C1C1] overflow-hidden flex flex-col p-1 max-w-screen-2xl md:h-[calc(100vh-64px)]">
+        <div class="bg-white overflow-hidden flex flex-col max-w-screen-2xl md:h-[calc(100vh-64px)] border border-gray-950">
 
-            <header class="bg-[#000279] py-4 px-6 text-white md:flex items-center justify-between text-2xl tracking-[1px]">
-                <h1 class="">Pixelarticons 1.8.0</h1>
-                <nav>
-                    <a class="hover:opacity-50" href="#">Github</a>
-                    <a class="ml-2 hover:opacity-50" href="#">NPM</a>
-                    <a class="ml-2 hover:opacity-50" href="#">Figma</a>
-                    <a class="ml-2 hover:opacity-50" href="#">Buy now</a>
-                </nav>
-            </header>
+            {% include "header.html" %}
 
-            <div class="md:flex items-stretch border-2 border-gray-400 overflow-hidden">
-                <div class="md:w-1/3 border-r border-gray-400 p-6 flex-shrink-0">
-                    <h1 class="text-4xl md:text-5xl tracking-[1px]">Not your standard vector icons</h1>
+            <div class="md:flex items-stretch overflow-hidden">
+                <div class="md:w-1/3 md:border-r border-gray-950 p-4 md:p-6 flex-shrink-0  overflow-auto">
+                    <h1 class="text-xl mb-4 font-semibold tracking-tight">Not your standard vector icons</h1>
+                    <p class="text-sm hidden md:block">Pixelarticons are presented in a singular color scheme, embodying a line art variant that captures the essence of minimalist and brutalist design principles. The Pro version expands this offering to 1,944 icons, available in four distinct styles, ensuring versatility and adaptability across a broad range of design projects.</p>
+                    <p class="text-sm mt-4">Perfect for designers looking to add a touch of retro flair to their work, Pixelarticons stands out as a comprehensive and scalable library for unconventional user interfaces and websites.</p>
+
+                    <a class="inline-flex mt-4 items-center gap-2 font-semibold text-sm bg-gray-950 px-4 py-2 text-white" href="https://halfmage.gumroad.com/l/pixelarticons-pro">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-4">
+                            <path fill="currentColor" d="M9 2h6v2H9V2Zm6 4V4h2v2h4v16H3V6h4V4h2v2h6Zm0 2H9v2H7V8H5v12h14V8h-2v2h-2V8Z"/>
+                        </svg>         
+                        Buy now     
+                    </a>
+                    
+                    <div class="text-sm mt-4">
+                        <div class="flex items-center justify-between border-b border-gray-950 py-2">
+                            <div class="w-full">1 style</div>
+                            <div class="w-full">486 icons</div>
+                            <div class="w-full">Open-source</div>
+                            <div class="text-right">Free</div>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-gray-950 py-2">
+                            <div class="w-full">4 styles</div>
+                            <div class="w-full">1.944 icons</div>
+                            <div class="w-full">1 user</div>
+                            <div class="text-right">€49</div>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <div class="w-full">4 styles</div>
+                            <div class="w-full">1.944 icons</div>
+                            <div class="w-full">10 users</div>
+                            <div class="text-right">€149</div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="grid grid-cols-6 overflow-auto">
+
+                <div class="grid grid-cols-6 md:grid-cols-8 overflow-auto">
                     {% for icon in pixelarticons %}
-                    <div class="px-1 py-6 inline-flex items-center justify-center flex-col text-center relative hover:bg-gray-200 dark:hover:bg-white/10 group">
+                    <div class="px-1 py-6 inline-flex items-center justify-center flex-col text-center relative hover:bg-gray-100 group">
                     {{ icon.sourceWithClass | safe }}
-                    <div class="w-full truncate px-2 text-gray-700 mt-4 text-sm tracking-wider">{{ icon.nameWithoutExtension }}</div>
+                    <div class="w-full truncate px-2 text-gray-700 mt-2 text-xs">{{ icon.nameWithoutExtension }}</div>
                     <div class="sr-only" id="icon-{{ icon.nameWithoutExtension }}">{{ icon.source }}</div>
-                    <button class="absolute bottom-4 opacity-0 group-hover:opacity-100 icon-clip inline-flex items-center px-4 py-2 shadow-lg text-sm font-medium text-white bg-primary-600 hover:bg-primary-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600" data-clipboard-target="#icon-{{ icon.nameWithoutExtension }}">Copy SVG</button>
+                    <button class="icon-clip hidden" data-clipboard-target="#icon-{{ icon.nameWithoutExtension }}">Copy SVG</button>
                     </div>
                     {% endfor %}
                 </div>

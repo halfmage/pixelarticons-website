@@ -1,5 +1,6 @@
 const htmlmin = require("html-minifier");
 const svgContents = require("eleventy-plugin-svg-contents");
+const pluginIcons = require('eleventy-plugin-icons');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setUseGitIgnore(false);
@@ -21,6 +22,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.svg");
 
   eleventyConfig.addPlugin(svgContents);
+
+  eleventyConfig.addPlugin(pluginIcons, {
+    sources: [{ name: 'icon', path: 'node_modules/pixelarticons/svg' }],
+  });
 
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     if (

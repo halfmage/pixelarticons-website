@@ -5,27 +5,29 @@ module.exports = {
   safelist: [],
   darkMode: "media",
   theme: {
-    colors: {
-      "white": "#fff",
-      primary: colors.cyan,
-      gray: colors.neutral,
-      violet: colors.violet,
-      cyan: colors.cyan,
-      blue: colors.blue
-    },
-    fontFamily: {
-      pixel: ['"Superstar"', 'sans-serf'],
-    },
-    container: {
-        center: true,
-        padding: {
-            DEFAULT: '1rem',
-            sm: '2rem',
-            lg: '4rem',
-            xl: '4rem',
-            '2xl': '4rem',
-            },
-    },
+    extend: {
+      colors: {
+        "white": "#fff",
+        primary: colors.cyan,
+        gray: colors.neutral,
+        violet: colors.violet,
+        cyan: colors.cyan,
+        blue: colors.blue
+      },
+      fontFamily: {
+        pixel: ['"Superstar"', 'sans-serf'],
+      },
+      container: {
+          center: true,
+          padding: {
+              DEFAULT: '1rem',
+              sm: '2rem',
+              lg: '4rem',
+              xl: '4rem',
+              '2xl': '4rem',
+              },
+      },
+    }
   },
   plugins: [],
 }
