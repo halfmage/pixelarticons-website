@@ -29,7 +29,6 @@
     "url": "https://github.com/halfmage/pixelarticons-website/issues"
   },
   "dependencies": {
-    "eleventy-plugin-icons": "^4.4.1",
     "pixelarticons": "^1.8.0"
   }
 }
