@@ -2,12 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* press-start-2p-regular - latin */
 @font-face {
-    font-family: 'Press Start 2P';
+    font-family: 'Superstar';
     font-style: normal;
     font-weight: 400;
     src: local(''),
-         url('../fonts/press-start-2p-v14-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/press-start-2p-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        url('../fonts/superstar_memesbruh03.woff') format('woff');
 }

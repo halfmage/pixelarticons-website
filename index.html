@@ -1,89 +1,70 @@
 ---
-layout: default
+layout: BaseLayout
 ---
 
-{% include "hero.html" %}
+<div class="bg-white overflow-hidden flex flex-col max-w-screen-2xl md:h-[calc(100vh-64px)] border border-gray-950">
 
-<div x-data="{ tab: window.location.hash ? window.location.hash.substring(1) : 'line' }" id="tab_wrapper" class="text-center">
-  <!-- The tabs navigation -->
-  <nav class="inline-flex justify-center my-8">
-    <a :class="{ 'active border-primary-500 text-primary-500': tab === 'line' }" @click.prevent="tab = 'line'; window.location.hash = 'line'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
-      Line <small class="text-sm uppercase bg-primary-100 dark:bg-primary-900 text-primary-500 ml-2 py-1 px-2">Free</small>
-    </a>
-    <a :class="{ 'active border-primary-500 text-primary-500': tab === 'solid' }" @click.prevent="tab = 'solid'; window.location.hash = 'solid'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
-      Solid
-    </a>
-    <a :class="{ 'active border-primary-500 text-primary-500': tab === 'thin' }" @click.prevent="tab = 'thin'; window.location.hash = 'thin'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
-      Thin
-    </a>
-    <a :class="{ 'active border-primary-500 text-primary-500': tab === 'glyph' }" @click.prevent="tab = 'glyph'; window.location.hash = 'glyph'" href="#" class="py-2 px-4 md:px-8 text-xl flex justify-center items-center border-b-4">
-      Glyph
-    </a>
-  </nav>
+    {% include "header.html" %}
 
+    <div class="md:flex items-stretch overflow-hidden">
+        <div class="md:w-1/3 md:border-r border-gray-950 p-4 md:p-6 flex-shrink-0  overflow-auto">
+            <h1 class="text-xl mb-4 font-semibold tracking-tight">Not your standard vector icons</h1>
+            <p class="text-sm hidden md:block">Pixelarticons are presented in a singular color scheme, embodying a line art variant that captures the essence of minimalist and brutalist design principles. The Pro version expands this offering to 1,944 icons, available in four distinct styles, ensuring versatility and adaptability across a broad range of design projects.</p>
+            <p class="text-sm mt-4">Perfect for designers looking to add a touch of retro flair to their work, Pixelarticons stands out as a comprehensive and scalable library for unconventional user interfaces and websites.</p>
 
-    <!-- The tabs content -->
-    <div class="border-2 border-gray-100 dark:border-gray-700 container">
-      <div x-cloak x-show="tab === 'line'" class="flex flex-wrap justify-center text-gray-800 dark:text-primary-200">
-        {% for icon in lineicons %}
-          <div class="p-3">
-            {{ icon.sourceWithClass | safe }}
-          </div>
-        {% endfor %}
-        <div class="my-4 text-center w-full">
-          Preview (96/1,944 icons) - 24x24px bounding box - 2px stroke
+            <div class="flex items-center gap-2 mt-4">
+                <a class="font-semibold text-sm bg-gray-950 px-4 py-2 text-white" href="https://halfmage.gumroad.com/l/pixelarticons-pro">        
+                    Get Pro
+                </a>
+                <a class="font-semibold text-sm bg-white border border-gray-300 px-4 py-2 text-gray-800" target="_blank" href="https://www.figma.com/file/eJzVfjFiJmHmUBRfanmufm/Pixelarticons---1.8.0?type=design&node-id=929-7279&mode=design">        
+                    Preview
+                </a>
+                <a class="font-semibold text-sm bg-white border border-gray-300 px-4 py-2 text-gray-800" target="_blank" href="https://www.figma.com/community/file/952542622393317653/pixelarticons-1-8-0">        
+                    Free Version
+                </a>
+            </div>
+            
+            <div class="text-sm mt-8">
+                <h2 class="text-xl mb-4 font-semibold tracking-tight">Install via package manager</h2>
+                <p class="font-mono">npm i pixelarticons@1.8.0</p>
+            </div>
+            
+            <div class="text-sm mt-8">
+                <h2 class="text-xl mb-4 font-semibold tracking-tight">Which versions are there?</h2>
+                <div class="flex items-center justify-between border-b border-gray-950 py-2">
+                    <div class="w-full">1 style</div>
+                    <div class="w-full">486 icons</div>
+                    <div class="w-full">Open-source</div>
+                    <div class="text-right">Free</div>
+                </div>
+                <div class="flex items-center justify-between border-b border-gray-950 py-2">
+                    <div class="w-full">4 styles</div>
+                    <div class="w-full">1.944 icons</div>
+                    <div class="w-full">1 user</div>
+                    <div class="text-right">€49</div>
+                </div>
+                <div class="flex items-center justify-between py-2">
+                    <div class="w-full">4 styles</div>
+                    <div class="w-full">1.944 icons</div>
+                    <div class="w-full">10 users</div>
+                    <div class="text-right">€149</div>
+                </div>
+            </div>
+
         </div>
-      </div>
-      <div x-cloak x-show="tab === 'solid'" class="flex flex-wrap justify-center text-gray-800 dark:text-primary-200">
-        {% for icon in solidicons %}
-          <div class="p-3">
+
+        <div class="grid grid-cols-5 md:grid-cols-6 xl:grid-cols-8 overflow-auto">
+            {% for icon in pixelarticons %}
+            <div class="px-1 py-8 border border-white hover:border-gray-200 inline-flex items-center justify-center flex-col text-center relative hover:bg-gray-100 group">
             {{ icon.sourceWithClass | safe }}
-          </div>
-        {% endfor %}
-        <div class="my-4 text-center w-full">
-          Preview (96/1,944 icons) - 24x24px bounding box - filled
+            <div class="w-full truncate px-2 text-gray-700 mt-2 text-xs">{{ icon.nameWithoutExtension }}</div>
+            <div class="sr-only" id="icon-{{ icon.nameWithoutExtension }}">{{ icon.source }}</div>
+            <button class="icon-clip absolute top-0 right-0 hidden group-hover:block p-1 hover:bg-gray-300 transition-colors" data-clipboard-target="#icon-{{ icon.nameWithoutExtension }}">
+                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M4 2h11v2H6v13H4V2Zm4 4h12v16H8V6Zm2 2v12h8V8h-8Z"/></svg>
+            </button>
+            </div>
+            {% endfor %}
         </div>
-      </div>
-      <div x-cloak x-show="tab === 'thin'" class="flex flex-wrap justify-center text-gray-800 dark:text-primary-200">
-        {% for icon in thinicons %}
-          <div class="p-3">
-            {{ icon.sourceWithClass | safe }}
-          </div>
-        {% endfor %}
-        <div class="my-4 text-center w-full">
-          Preview (96/1,944 icons) - 24x24px bounding box - 1px stroke
-        </div>
-      </div>
-      <div x-cloak x-show="tab === 'glyph'" class="flex flex-wrap justify-center text-gray-800 dark:text-primary-200">
-        {% for icon in glyphicons %}
-          <div class="p-3">
-            {{ icon.sourceWithClass | safe }}
-          </div>
-        {% endfor %}
-        <div class="my-4 text-center w-full">
-          Preview (96/1,944 icons) - 24x24px bounding box - 1px stroke + filled
-        </div>
-      </div>
     </div>
 
 </div>
-
-<div class="my-16 md:my-24">
-  <div class="container flex flex-col md:flex-row items-center justify-center">
-    <a class="transition-colors px-3 py-3 md:px-8 md:py-4 w-full md:w-auto border-2 border-gray-200 hover:border-gray-400 m-2 text-xl inline-flex items-center justify-center font-bold" href="https://www.figma.com/community/file/952542622393317653" target="_blank">
-        <svg class="w-6 h-6 mr-2" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M2 2h20v16h-5v2h-2v-2H9v2H7v-2H2V2zm5 18v2H5v-2h2zm10 0v2h2v-2h-2zm3-16H4v12h16V4zm-8 4h2v2h-2V8zm-2 4v-2h2v2h-2zm0 0v2H8v-2h2zm6 0h-2v-2h2v2zm0 0h2v2h-2v-2zM8 6H6v2h2V6z" fill="currentColor"/>
-        </svg>
-        Figma <span class="text-sm ml-2">(Free preview)</span>
-    </a>
-    <a class="transition-colors px-3 py-3 md:px-8 md:py-4 w-full md:w-auto bg-primary-600 hover:bg-primary-700 m-2 text-xl text-white inline-flex items-center justify-center font-bold" href="https://halfmage.gumroad.com/l/pixelarticons-pro">
-        <svg class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M9 2H15V4H9V2ZM9 4V6H7V4H9ZM15 4V6H17V4H15Z" fill="#fff"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M7 6H3V22H21V6H17V10H15V6H9V10H7V6Z" fill="#fff"/>
-        </svg>                
-        Buy now
-    </a>
-  </div>
-</div>
-
-{% include "content.html" %}
