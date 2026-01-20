@@ -2,53 +2,180 @@
 layout: BaseLayout
 ---
 
-<div class="bg-white overflow-hidden flex flex-col max-w-screen-2xl md:h-[calc(100vh-64px)] border border-gray-950" x-data="{ search: '' }">
+<div class="bg-white overflow-hidden flex flex-col max-w-screen-2xl md:h-[calc(100vh-64px)] border border-gray-950" x-data="{ 
+    search: '', 
+    searchDebounced: '',
+    searchTimeout: null,
+    iconVersion: 'new',
+    iconSize: '24px',
+    currentPage: 1,
+    itemsPerPage: 96,
+    newicons: [
+        {% for icon in newicons %}
+        {
+            name: '{{ icon.name }}',
+            nameWithoutExtension: '{{ icon.nameWithoutExtension }}',
+            path: '{{ icon.path }}'
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ],
+    get filteredNewIcons() {
+        if (!this.searchDebounced) {
+            return this.newicons;
+        }
+        const searchLower = this.searchDebounced.toLowerCase();
+        return this.newicons.filter(icon => 
+            icon.nameWithoutExtension.toLowerCase().includes(searchLower)
+        );
+    },
+    get paginatedNewIcons() {
+        if (this.iconVersion !== 'new') return [];
+        const start = (this.currentPage - 1) * this.itemsPerPage;
+        const end = start + this.itemsPerPage;
+        return this.filteredNewIcons.slice(start, end);
+    },
+    get totalPages() {
+        if (this.iconVersion !== 'new') return 0;
+        return Math.ceil(this.filteredNewIcons.length / this.itemsPerPage);
+    },
+    init() {
+        // Initialize from localStorage
+        try {
+            const stored = localStorage.getItem('iconVersion');
+            if (stored) {
+                this.iconVersion = stored;
+            }
+            const storedSize = localStorage.getItem('iconSize');
+            if (storedSize) {
+                this.iconSize = storedSize;
+            }
+        } catch(e) {}
+        
+        // Watch for changes and save to localStorage
+        this.$watch('iconVersion', value => {
+            try {
+                localStorage.setItem('iconVersion', value);
+            } catch(e) {}
+            // Reset to page 1 when switching versions
+            this.currentPage = 1;
+        });
+        
+        this.$watch('iconSize', value => {
+            try {
+                localStorage.setItem('iconSize', value);
+            } catch(e) {}
+        });
+        
+        // Debounce search input
+        this.$watch('search', (value) => {
+            clearTimeout(this.searchTimeout);
+            this.searchTimeout = setTimeout(() => {
+                this.searchDebounced = value;
+                this.currentPage = 1;
+            }, 150);
+        });
+        
+        // Initialize debounced search
+        this.searchDebounced = this.search;
+        
+        // Listen for version changes from header
+        window.addEventListener('version-change', (e) => {
+            this.iconVersion = e.detail.version;
+        });
+    },
+    goToPage(page) {
+        if (page >= 1 && page <= this.totalPages) {
+            this.currentPage = page;
+            // Scroll to top of icon grid
+            document.querySelector('.icon-grid-container')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+}">
 
     {% include "header.html" %}
 
     <div class="md:flex items-stretch overflow-hidden">
-        <div class="md:w-1/3 md:border-r border-gray-950 p-4 md:p-6 flex-shrink-0 overflow-auto">
+        <div class="md:w-1/4 md:border-r border-gray-950 p-4 md:p-6 flex-shrink-0 overflow-auto">
+
+            <!-- Version Toggle -->
+            <div class="flex items-center w-full gap-2 mb-6">
+                <button 
+                    @click="iconVersion = 'new'"
+                    :class="iconVersion === 'new' ? 'bg-gray-950 text-white' : 'bg-white text-gray-800 border border-gray-300'"
+                    class="px-3 py-1.5 text-xs font-semibold transition-colors w-full"
+                >
+                    New icons
+                </button>
+                <button 
+                    @click="iconVersion = 'legacy'"
+                    :class="iconVersion === 'legacy' ? 'bg-gray-950 text-white' : 'bg-white text-gray-800 border border-gray-300'"
+                    class="px-3 py-1.5 text-xs font-semibold transition-colors"
+                >
+                    Legacy
+                </button>
+            </div>
 
             <h1 class="text-xl mb-4 font-semibold tracking-tight">Deliberately pixelated</h1>
-            <p class="text-sm hidden md:block">Pixelarticons are presented in a singular color scheme, embodying a line art variant that captures the essence of minimalist and brutalist design principles. The Pro version expands this offering to 1,944 icons, available in four distinct styles, ensuring versatility and adaptability across a broad range of design projects.</p>
             <p class="text-sm mt-4">Perfect for designers looking to add a touch of retro flair to their work, Pixelarticons stands out as a comprehensive and scalable library for unconventional user interfaces and websites.</p>
 
-            <div class="flex items-center gap-2 mt-4">
-                <a class="font-semibold text-sm bg-gray-950 px-4 py-2 text-white" href="https://halfmage.gumroad.com/l/pixelarticons-pro">        
-                    Get Pro
-                </a>
-                <a class="font-semibold text-sm bg-white border border-gray-300 px-4 py-2 text-gray-800" target="_blank" href="https://www.figma.com/file/eJzVfjFiJmHmUBRfanmufm/Pixelarticons---1.8.0?type=design&node-id=929-7279&mode=design">        
-                    Preview
-                </a>
-                <a class="font-semibold text-sm bg-white border border-gray-300 px-4 py-2 text-gray-800" target="_blank" href="https://www.figma.com/community/file/952542622393317653/pixelarticons-1-8-0">        
-                    Free Version
-                </a>
-            </div>
-            
-            <div class="text-sm mt-8">
-                <h2 class="text-xl mb-4 font-semibold tracking-tight">Install via package manager</h2>
-                <p class="font-mono">npm i pixelarticons@1.8.0</p>
-            </div>
-            
-            <div class="text-sm mt-8">
-                <h2 class="text-xl mb-4 font-semibold tracking-tight">Which versions are there?</h2>
-                <div class="flex items-center justify-between border-b border-gray-950 py-2">
-                    <div class="w-full">1 style</div>
-                    <div class="w-full">486 icons</div>
-                    <div class="w-full">Open-source</div>
-                    <div class="text-right">Free</div>
+            <!-- Legacy Mode Content -->
+            <div x-show="iconVersion === 'legacy'">
+                <div class="flex items-center gap-2 mt-4">
+                    <a class="font-semibold text-sm bg-gray-950 px-4 py-2 text-white" href="https://halfmage.gumroad.com/l/pixelarticons">        
+                        Get Pro
+                    </a>
+                    <a class="font-semibold text-sm bg-white border border-gray-300 px-4 py-2 text-gray-800" target="_blank" href="https://www.figma.com/file/eJzVfjFiJmHmUBRfanmufm/Pixelarticons---1.8.0?type=design&node-id=929-7279&mode=design">        
+                        Preview
+                    </a>
+                    <a class="font-semibold text-sm bg-white border border-gray-300 px-4 py-2 text-gray-800" target="_blank" href="https://www.figma.com/community/file/952542622393317653/pixelarticons-1-8-0">        
+                        Free Version
+                    </a>
                 </div>
-                <div class="flex items-center justify-between border-b border-gray-950 py-2">
-                    <div class="w-full">4 styles</div>
-                    <div class="w-full">1.944 icons</div>
-                    <div class="w-full">1 user</div>
-                    <div class="text-right">€49</div>
+                
+                <div class="text-sm mt-8">
+                    <h2 class="text-xl mb-4 font-semibold tracking-tight">Install via package manager</h2>
+                    <p class="font-mono">npm i pixelarticons@1.8.0</p>
                 </div>
-                <div class="flex items-center justify-between py-2">
-                    <div class="w-full">4 styles</div>
-                    <div class="w-full">1.944 icons</div>
-                    <div class="w-full">10 users</div>
-                    <div class="text-right">€149</div>
+            </div>
+
+            <!-- New Icons Mode Content -->
+            <div x-show="iconVersion === 'new'">
+                <div class="mt-4">
+                    <p class="text-sm text-gray-600">Browse the preview icons below. Click "Get SVG" on any icon to purchase the full SVG version.</p>
+                </div>
+                
+                <div class="text-sm mt-8">
+                    <h2 class="text-xl mb-4 font-semibold tracking-tight">Which versions are there?</h2>
+                    <div class="space-y-2">
+                        <a href="https://halfmage.gumroad.com/l/pixelarticons" target="_blank" class="block border border-gray-950 p-4 hover:bg-gray-100 transition-colors">
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="font-semibold">SOLO</div>
+                                <div class="text-right font-semibold">€99</div>
+                            </div>
+                            <div class="text-xs text-gray-600">1 seat • Lifetime updates</div>
+                        </a>
+                        <a href="https://halfmage.gumroad.com/l/pixelarticons" target="_blank" class="block border border-gray-950 p-4 hover:bg-gray-100 transition-colors">
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="font-semibold">TEAM</div>
+                                <div class="text-right font-semibold">€199</div>
+                            </div>
+                            <div class="text-xs text-gray-600">Up to 5 seats • Lifetime updates</div>
+                        </a>
+                        <a href="https://halfmage.gumroad.com/l/pixelarticons" target="_blank" class="block border border-gray-950 p-4 hover:bg-gray-100 transition-colors">
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="font-semibold">AGENCY</div>
+                                <div class="text-right font-semibold">€349</div>
+                            </div>
+                            <div class="text-xs text-gray-600">Up to 15 seats • Lifetime updates</div>
+                        </a>
+                        <a href="https://halfmage.gumroad.com/l/pixelarticons" target="_blank" class="block border border-gray-950 p-4 hover:bg-gray-100 transition-colors">
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="font-semibold">SUPPORTER</div>
+                                <div class="text-right font-semibold">€499</div>
+                            </div>
+                            <div class="text-xs text-gray-600">Unlimited seats • Lifetime updates • Website link</div>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -57,39 +184,124 @@ layout: BaseLayout
         <div class="flex flex-col overflow-hidden flex-1">
             <!-- Search Bar -->
             <div class="p-4 border-b border-gray-950 bg-gray-50 sticky top-0 z-10">
-                <div class="relative">
-                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-gray-400" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h8v2H6V2zM4 6V4h2v2H4zm0 8H2V6h2v8zm2 2H4v-2h2v2zm8 0v2H6v-2h8zm2-2h-2v2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2zm0-8h2v8h-2V6zm0 0V4h-2v2h2z" fill="currentColor"/></svg>
-                    <input 
-                        type="text" 
-                        x-model="search" 
-                        placeholder="Search icons..." 
-                        class="w-full pl-10 pr-4 py-2.5 border border-gray-300 focus:border-gray-950 focus:ring-1 focus:ring-gray-950 outline-none transition-colors text-sm"
-                    >
-                    <button 
-                        x-show="search.length > 0" 
-                        @click="search = ''" 
-                        class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                    >
-                        <svg class="size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M5 5h2v2H5V5Zm4 4H7V7h2v2Zm2 2H9V9h2v2Zm2 0h-2v2H9v2H7v2H5v2h2v-2h2v-2h2v-2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2Zm2-2v2h-2V9h2Zm2-2v2h-2V7h2Zm0 0V5h2v2h-2Z"/></svg>
-                    </button>
+                <div class="flex items-center gap-3">
+                    <div class="relative flex-1">
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-gray-400" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h8v2H6V2zM4 6V4h2v2H4zm0 8H2V6h2v8zm2 2H4v-2h2v2zm8 0v2H6v-2h8zm2-2h-2v2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2zm0-8h2v8h-2V6zm0 0V4h-2v2h2z" fill="currentColor"/></svg>
+                        <input 
+                            type="text" 
+                            x-model="search" 
+                            placeholder="Search icons..." 
+                            class="w-full pl-10 pr-4 py-2.5 border border-gray-300 focus:border-gray-950 focus:ring-1 focus:ring-gray-950 outline-none transition-colors text-sm"
+                        >
+                        <button 
+                            x-show="search.length > 0" 
+                            @click="clearTimeout(searchTimeout); search = ''; searchDebounced = ''; currentPage = 1;" 
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                        >
+                            <svg class="size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M5 5h2v2H5V5Zm4 4H7V7h2v2Zm2 2H9V9h2v2Zm2 0h-2v2H9v2H7v2H5v2h2v-2h2v-2h2v-2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2Zm2-2v2h-2V9h2Zm2-2v2h-2V7h2Zm0 0V5h2v2h-2Z"/></svg>
+                        </button>
+                    </div>
+                    <!-- Size Switcher -->
+                    <div class="flex items-center gap-1 border border-gray-300 bg-white">
+                        <button 
+                            @click="iconSize = '24px'"
+                            :class="iconSize === '24px' ? 'bg-gray-950 text-white' : 'bg-white text-gray-800 hover:bg-gray-50'"
+                            class="px-3 py-2 text-xs font-semibold transition-colors"
+                            title="24px preview"
+                        >
+                            24px
+                        </button>
+                        <button 
+                            @click="iconSize = '48px'"
+                            :class="iconSize === '48px' ? 'bg-gray-950 text-white' : 'bg-white text-gray-800 hover:bg-gray-50'"
+                            class="px-3 py-2 text-xs font-semibold transition-colors"
+                            title="48px preview"
+                        >
+                            48px
+                        </button>
+                    </div>
                 </div>
             </div>
             
             <!-- Icon Grid -->
-            <div class="grid grid-cols-5 md:grid-cols-6 xl:grid-cols-8 auto-rows-max overflow-auto">
-                {% for icon in pixelarticons %}
-                <div 
-                    class="aspect-square px-1 py-4 border border-white hover:border-gray-200 flex items-center justify-center flex-col text-center relative hover:bg-gray-100 group"
-                    x-show="'{{ icon.nameWithoutExtension }}'.toLowerCase().includes(search.toLowerCase())"
-                >
-                    {{ icon.sourceWithClass | safe }}
-                    <div class="w-full truncate px-2 text-gray-700 mt-2 text-xs">{{ icon.nameWithoutExtension }}</div>
-                    <div class="sr-only" id="icon-{{ icon.nameWithoutExtension }}">{{ icon.source }}</div>
-                    <button class="icon-clip absolute top-0 right-0 hidden group-hover:block p-1 hover:bg-gray-300 transition-colors" data-clipboard-target="#icon-{{ icon.nameWithoutExtension }}">
-                        <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M4 2h11v2H6v13H4V2Zm4 4h12v16H8V6Zm2 2v12h8V8h-8Z"/></svg>
-                    </button>
+            <div class="flex flex-col flex-1 overflow-hidden">
+                <div class="icon-grid-container grid grid-cols-5 md:grid-cols-6 xl:grid-cols-8 auto-rows-max overflow-auto flex-1">
+                    <!-- Legacy Icons -->
+                    {% for icon in pixelarticons %}
+                    <div 
+                        class="aspect-square px-1 py-4 border border-white hover:border-gray-200 flex items-center justify-center flex-col text-center relative hover:bg-gray-100 group"
+                        x-show="iconVersion === 'legacy' && '{{ icon.nameWithoutExtension }}'.toLowerCase().includes(search.toLowerCase())"
+                    >
+                        <div :style="{ width: iconSize, height: iconSize }" style="width: 24px; height: 24px;" class="flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
+                            {{ icon.sourceWithClass | safe }}
+                        </div>
+                        <div class="w-full truncate px-2 text-gray-700 mt-2 text-xs">{{ icon.nameWithoutExtension }}</div>
+                        <div class="sr-only" id="icon-{{ icon.nameWithoutExtension }}">{{ icon.source }}</div>
+                        <button class="icon-clip absolute top-0 right-0 hidden group-hover:block p-1 hover:bg-gray-300 transition-colors" data-clipboard-target="#icon-{{ icon.nameWithoutExtension }}">
+                            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M4 2h11v2H6v13H4V2Zm4 4h12v16H8V6Zm2 2v12h8V8h-8Z"/></svg>
+                        </button>
+                    </div>
+                    {% endfor %}
+                    
+                    <!-- New Icons (Paginated) - Only render visible icons -->
+                    <template x-for="icon in paginatedNewIcons" :key="icon.name">
+                        <div 
+                            class="aspect-square px-1 py-4 border border-white hover:border-gray-200 flex items-center justify-center flex-col text-center relative hover:bg-gray-100 group"
+                            x-show="iconVersion === 'new'"
+                        >
+                            <img :src="icon.path" :alt="icon.nameWithoutExtension" loading="lazy" :style="{ width: iconSize, height: iconSize }" style="width: 24px; height: 24px;" />
+                            <div class="w-full truncate px-2 text-gray-700 mt-2 text-xs" x-text="icon.nameWithoutExtension"></div>
+                            <a href="https://halfmage.gumroad.com/l/pixelarticons" target="_blank" class="absolute top-1 right-1 hidden group-hover:block p-1 hover:bg-gray-700 transition-colors bg-gray-950 text-white text-xs px-2 py-1">
+                                Get SVG
+                            </a>
+                        </div>
+                    </template>
                 </div>
-                {% endfor %}
+                
+                <!-- Pagination Controls (only show for new icons) -->
+                <div x-show="iconVersion === 'new' && totalPages > 1" class="border-t border-gray-950 bg-gray-50 p-4 flex items-center justify-between flex-wrap gap-4">
+                    <div class="text-sm text-gray-600">
+                        <span x-show="filteredNewIcons.length > 0">
+                            Showing <span x-text="(currentPage - 1) * itemsPerPage + 1"></span> - 
+                            <span x-text="Math.min(currentPage * itemsPerPage, filteredNewIcons.length)"></span> 
+                            of <span x-text="filteredNewIcons.length"></span> icons
+                        </span>
+                        <span x-show="filteredNewIcons.length === 0">No icons found</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button 
+                            @click="goToPage(currentPage - 1)"
+                            :disabled="currentPage === 1"
+                            :class="currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200'"
+                            class="px-3 py-1.5 border border-gray-300 bg-white text-sm font-semibold transition-colors"
+                        >
+                            Previous
+                        </button>
+                        <div class="flex items-center gap-1">
+                            <template x-for="page in Array.from({length: Math.min(7, totalPages)}, (_, i) => {
+                                if (totalPages <= 7) return i + 1;
+                                if (currentPage <= 4) return i + 1;
+                                if (currentPage >= totalPages - 3) return totalPages - 6 + i;
+                                return currentPage - 3 + i;
+                            })" :key="page">
+                                <button 
+                                    @click="goToPage(page)"
+                                    :class="page === currentPage ? 'bg-gray-950 text-white' : 'bg-white text-gray-800 hover:bg-gray-100'"
+                                    class="px-3 py-1.5 border border-gray-300 text-sm font-semibold transition-colors min-w-[2.5rem]"
+                                    x-text="page"
+                                ></button>
+                            </template>
+                        </div>
+                        <button 
+                            @click="goToPage(currentPage + 1)"
+                            :disabled="currentPage === totalPages"
+                            :class="currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200'"
+                            class="px-3 py-1.5 border border-gray-300 bg-white text-sm font-semibold transition-colors"
+                        >
+                            Next
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
