@@ -1,0 +1,33 @@
+---
+layout: BaseLayout
+---
+
+<div class="">
+    {% include "banner.html" %}
+    {% include "header.html" %}
+
+    <div class="container p-8 border-x border-b border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
+        <div class="flex flex-col overflow-hidden flex-1 w-full">
+            <!-- Icon Grid -->
+            <div class="flex flex-col flex-1 overflow-hidden">
+                <div id="icon-grid" class="icon-grid-container grid grid-cols-5 md:grid-cols-6 lg:grid-cols-12 auto-rows-max overflow-auto flex-1 px-1 py-3">
+                    <!-- Legacy Icons -->
+                    {% for icon in pixelarticons %}
+                    <div
+                        class="aspect-square px-1 py-4 flex items-center justify-center flex-col text-center relative hover:bg-gray-100 dark:hover:bg-gray-800 group"
+                    >
+                        <div style="width: 24px; height: 24px;" class="flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
+                            {{ icon.sourceWithClass | safe }}
+                        </div>
+                        <div class="w-full truncate px-2 text-gray-700 dark:text-gray-300 mt-2 text-xs">{{ icon.nameWithoutExtension }}</div>
+                        <div class="sr-only" id="icon-{{ icon.nameWithoutExtension }}">{{ icon.source }}</div>
+                        <button class="icon-clip absolute top-0 right-0 hidden group-hover:block p-1 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" data-clipboard-target="#icon-{{ icon.nameWithoutExtension }}">
+                            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M4 2h11v2H6v13H4V2Zm4 4h12v16H8V6Zm2 2v12h8V8h-8Z"/></svg>
+                        </button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

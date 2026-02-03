@@ -6,7 +6,6 @@ layout: BaseLayout
     search: '', 
     searchDebounced: '',
     searchTimeout: null,
-    iconVersion: 'new',
     iconSize: '24px',
     currentPage: 1,
     itemsPerPage: 96,
@@ -29,36 +28,21 @@ layout: BaseLayout
         );
     },
     get paginatedNewIcons() {
-        if (this.iconVersion !== 'new') return [];
         const start = (this.currentPage - 1) * this.itemsPerPage;
         const end = start + this.itemsPerPage;
         return this.filteredNewIcons.slice(start, end);
     },
     get totalPages() {
-        if (this.iconVersion !== 'new') return 0;
         return Math.ceil(this.filteredNewIcons.length / this.itemsPerPage);
     },
     init() {
         // Initialize from localStorage
         try {
-            const stored = localStorage.getItem('iconVersion');
-            if (stored) {
-                this.iconVersion = stored;
-            }
             const storedSize = localStorage.getItem('iconSize');
             if (storedSize) {
                 this.iconSize = storedSize;
             }
         } catch(e) {}
-        
-        // Watch for changes and save to localStorage
-        this.$watch('iconVersion', value => {
-            try {
-                localStorage.setItem('iconVersion', value);
-            } catch(e) {}
-            // Reset to page 1 when switching versions
-            this.currentPage = 1;
-        });
         
         this.$watch('iconSize', value => {
             try {
@@ -77,11 +61,6 @@ layout: BaseLayout
         
         // Initialize debounced search
         this.searchDebounced = this.search;
-        
-        // Listen for version changes from header
-        window.addEventListener('version-change', (e) => {
-            this.iconVersion = e.detail.version;
-        });
     },
     goToPage(page) {
         if (page >= 1 && page <= this.totalPages) {
@@ -99,11 +78,11 @@ layout: BaseLayout
 
             <!-- Hero Section -->
             <div class="border-b border-gray-300 dark:border-gray-700">
-                <div class="container relative p-8 border-x border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
+                <div class="container relative p-4 sm:p-6 md:p-8 border-x border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
                     <div class="max-w-lg text-left">
-                        <h1 class="text-3xl mb-3 tracking-tight">Deliberately pixelated</h1>
-                        <p class="text-sm mb-4 text-gray-700 dark:text-gray-300">Perfect for designers looking to add a touch of retro flair to their work, Pixelarticons stands out as a comprehensive and scalable library for unconventional user interfaces and websites.</p>
-                        <div class="flex items-center  gap-2">
+                        <h1 class="text-2xl sm:text-3xl mb-3 tracking-tight">Deliberately pixelated</h1>
+                        <p class="text-xs sm:text-sm mb-4 text-gray-700 dark:text-gray-300">Perfect for designers looking to add a touch of retro flair to their work, Pixelarticons stands out as a comprehensive and scalable library for unconventional user interfaces and websites.</p>
+                        <div class="flex flex-wrap items-center gap-2">
                             <a href="https://halfmage.gumroad.com/l/pixelarticons" class="btn btn-primary btn-sm">Buy now</a>
                             <a href="#icon-grid" class="btn btn-sm" @click.prevent="document.querySelector('.icon-grid-container')?.scrollIntoView({ behavior: 'smooth', block: 'start' })">Explore</a>
                         </div>
@@ -122,17 +101,17 @@ layout: BaseLayout
                 </div>
             </div>
             
-            <div class="container p-8 border-x border-b border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
+            <div class="container p-4 sm:p-6 md:p-8 border-x border-b border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
                 <!-- Search Bar -->
                 <div class="bg-white dark:bg-black">
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-2 sm:gap-3">
                         <div class="relative flex-1 group">
                             <svg class="absolute left-3 top-1/2 -translate-y-1/2 size-6" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h8v2H6V2zM4 6V4h2v2H4zm0 8H2V6h2v8zm2 2H4v-2h2v2zm8 0v2H6v-2h8zm2-2h-2v2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2zm0-8h2v8h-2V6zm0 0V4h-2v2h2z" fill="currentColor"/></svg>
                             <input
                                 type="text"
                                 x-model="search"
                                 placeholder="Search icons..."
-                                class="w-full pl-12 pr-4 py-2.5 border border-gray-300 group-hover:border-gray-400 dark:border-gray-700 group-hover:dark:border-gray-500 rounded placeholder:font-normal placeholder:tracking-wide focus:border-gray-950 focus:ring-1 ring-inset focus:ring-gray-950 outline-none transition-colors text-sm dark:bg-black dark:text-white dark:ring-white dark:focus:ring-white"
+                                class="w-full pl-12 pr-4 py-2 sm:py-2.5 border border-gray-300 group-hover:border-gray-400 dark:border-gray-700 group-hover:dark:border-gray-500 rounded placeholder:font-normal placeholder:tracking-wide focus:border-gray-950 focus:ring-1 ring-inset focus:ring-gray-950 outline-none transition-colors text-sm dark:bg-black dark:text-white dark:ring-white dark:focus:ring-white"
                             >
                             <button
                                 x-show="search.length > 0"
@@ -143,11 +122,11 @@ layout: BaseLayout
                             </button>
                         </div>
                         <!-- Size Switcher -->
-                        <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-2 shrink-0">
                             <button
                                 @click="iconSize = '24px'"
                                 :class="iconSize === '24px' ? 'btn-black' : 'btn'"
-                                class="px-4 py-2 text-sm rounded leading-6 border border-black"
+                                class="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded leading-6 border border-black"
                                 title="24px preview"
                             >
                                 24px
@@ -155,7 +134,7 @@ layout: BaseLayout
                             <button
                                 @click="iconSize = '48px'"
                                 :class="iconSize === '48px' ? 'btn-black' : 'btn'"
-                                class="px-4 py-2 text-sm rounded leading-6 border border-black"
+                                class="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded leading-6 border border-black"
                                 title="48px preview"
                             >
                                 48px
@@ -166,32 +145,12 @@ layout: BaseLayout
                 <div class="flex flex-col overflow-hidden flex-1 w-full mt-2">
                     <!-- Icon Grid -->
                     <div class="flex flex-col flex-1 overflow-hidden">
-                        <div id="icon-grid" class="icon-grid-container grid grid-cols-5 md:grid-cols-6 lg:grid-cols-12 auto-rows-max overflow-auto flex-1 px-1 py-3">
-                            <!-- Legacy Icons -->
-                            {% for icon in pixelarticons %}
-                            <div
-                                class="aspect-square px-1 py-4 flex items-center justify-center flex-col text-center relative hover:bg-gray-100 group"
-                                x-show="iconVersion === 'legacy' && '{{ icon.nameWithoutExtension }}'.toLowerCase().includes(search.toLowerCase())"
-                            >
-                                <div :style="{ width: iconSize, height: iconSize }" style="width: 24px; height: 24px;" class="flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
-                                    {{ icon.sourceWithClass | safe }}
-                                </div>
-                                <div class="w-full truncate px-2 text-gray-700 mt-2 text-xs">{{ icon.nameWithoutExtension }}</div>
-                                <div class="sr-only" id="icon-{{ icon.nameWithoutExtension }}">{{ icon.source }}</div>
-                                <button class="icon-clip absolute top-0 right-0 hidden group-hover:block p-1 hover:bg-gray-300 transition-colors" data-clipboard-target="#icon-{{ icon.nameWithoutExtension }}">
-                                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M4 2h11v2H6v13H4V2Zm4 4h12v16H8V6Zm2 2v12h8V8h-8Z"/></svg>
-                                </button>
-                            </div>
-                            {% endfor %}
-                
+                        <div id="icon-grid" class="icon-grid-container grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-12 auto-rows-max overflow-auto flex-1 px-1 py-3">
                             <!-- New Icons (Paginated) - Only render visible icons -->
                             <template x-for="icon in paginatedNewIcons" :key="icon.name">
-                                <div
-                                    class="icon-card group"
-                                    x-show="iconVersion === 'new'"
-                                >
+                                <div class="icon-card group">
                                     <img class="dark:invert" :src="icon.path" :alt="icon.nameWithoutExtension" loading="lazy" :style="{ width: iconSize, height: iconSize }" style="width: 24px; height: 24px;" />
-                                    <div class="hidden w-full truncate px-2 text-gray-700 mt-2 text-xs" x-text="icon.nameWithoutExtension"></div>
+                                    <div class="w-full truncate px-1 mt-3 text-gray-400 dark:text-gray-600 text-[10px] leading-tight" x-text="icon.nameWithoutExtension"></div>
                                     <a href="https://halfmage.gumroad.com/l/pixelarticons" target="_blank" class="rounded absolute -top-2 -right-2 hidden group-hover:block p-1 transition-colors bg-primary border border-black text-black text-[10px] px-2 py-1 hover:bg-black hover:text-white">
                                         Get SVG
                                     </a>
@@ -200,10 +159,10 @@ layout: BaseLayout
                         </div>
                     </div>
                 </div>
-                <!-- Pagination Controls (only show for new icons) -->
-                <div x-show="iconVersion === 'new' && totalPages > 1" class="">
-                    <div class="flex items-center justify-between p-6">
-                        <div class="text-sm text-gray-600">
+                <!-- Pagination Controls -->
+                <div x-show="totalPages > 1" class="">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 sm:p-6">
+                        <div class="text-xs sm:text-sm text-gray-600 text-center sm:text-left">
                             <span x-show="filteredNewIcons.length > 0">
                                 Showing <span x-text="(currentPage - 1) * itemsPerPage + 1"></span> -
                                 <span x-text="Math.min(currentPage * itemsPerPage, filteredNewIcons.length)"></span>
@@ -211,16 +170,17 @@ layout: BaseLayout
                             </span>
                             <span x-show="filteredNewIcons.length === 0">No icons found</span>
                         </div>
-                        <div class="flex items-center gap-1">
+                        <div class="flex items-center gap-1 flex-wrap justify-center">
                             <button
                                 @click="goToPage(currentPage - 1)"
                                 :disabled="currentPage === 1"
                                 :class="currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200'"
                                 class="btn btn-sm"
                             >
-                                Previous
+                                <span class="hidden sm:inline">Previous</span>
+                                <span class="sm:hidden">Prev</span>
                             </button>
-                            <div class="flex items-center gap-1">
+                            <div class="flex items-center gap-1 overflow-x-auto">
                                 <template x-for="page in Array.from({length: Math.min(7, totalPages)}, (_, i) => {
                                     if (totalPages <= 7) return i + 1;
                                     if (currentPage <= 4) return i + 1;
@@ -230,7 +190,7 @@ layout: BaseLayout
                                     <button
                                         @click="goToPage(page)"
                                         :class="page === currentPage ? 'bg-gray-950 text-white' : 'bg-white text-gray-800 hover:bg-gray-100'"
-                                        class="btn btn-sm"
+                                        class="btn btn-sm min-w-[2.5rem]"
                                         x-text="page"
                                     ></button>
                                 </template>

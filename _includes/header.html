@@ -1,13 +1,52 @@
 <header class="border-b border-gray-300 dark:border-gray-700 dark:text-gray-50">
-    <div class="container mx-auto px-6 flex items-center justify-between py-6 border-x border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
+    <div class="container mx-auto px-4 sm:px-6 flex items-center justify-between py-4 sm:py-6 border-x border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
         <a href="/" class="p-2">
-            <img src="/logo.svg" alt="Pixelarticons" class="h-6 hover:scale-110 hover:-rotate-6 transition-all duration-100">
+            <img src="/logo.svg" alt="Pixelarticons" class="h-5 sm:h-6 hover:scale-110 hover:-rotate-6 transition-all duration-100">
         </a>
-        <nav class="flex items-center gap-2">
-            <a class="flex items-center gap-2 rounded hover:underline group px-4 py-2" href="#">Icons<span class="size-1 bg-black outline outline-2 outline-black dark:outline-white group-hover:animate-spin group-hover:bg-primary"></span></a>
-            <a class="flex items-center gap-2 rounded hover:underline group px-4 py-2" href="#">About <span class="size-1 bg-black outline outline-2 outline-black dark:outline-white group-hover:animate-spin group-hover:bg-primary"></span></a>
-            <a class="flex items-center gap-2 rounded hover:underline group px-4 py-2" href="#">Docs <span class="size-1 bg-black outline outline-2 outline-black dark:outline-white group-hover:animate-spin group-hover:bg-primary"></span></a>
-            <a class="flex items-center gap-2 rounded hover:underline group px-4 py-2" href="#">Legacy <span class="size-1 bg-black outline outline-2 outline-black dark:outline-white group-hover:animate-spin group-hover:bg-primary"></span></a>
+        <nav class="hidden sm:flex items-center gap-2" x-data="{ 
+            currentPath: '',
+            init() {
+                this.currentPath = window.location.pathname;
+            },
+            isActive(path) {
+                const normalizedPath = this.currentPath.replace(/\/$/, '').replace(/\.html$/, '');
+                const normalizedTarget = path.replace(/\/$/, '').replace(/\.html$/, '');
+                if (normalizedTarget === '') {
+                    return normalizedPath === '' || normalizedPath === '/';
+                }
+                return normalizedPath === normalizedTarget || normalizedPath.startsWith(normalizedTarget + '/');
+            }
+        }">
+            <a 
+                class="flex items-center gap-2 rounded hover:underline group px-4 py-2"
+                :class="isActive('/') ? 'underline' : ''"
+                href="/"
+            >
+                Icons<span 
+                    class="size-1 bg-black outline outline-2 outline-black dark:outline-white group-hover:animate-spin group-hover:bg-primary"
+                    :class="isActive('/') ? 'animate-spin bg-primary' : ''"
+                ></span>
+            </a>
+            <a 
+                class="flex items-center gap-2 rounded hover:underline group px-4 py-2"
+                :class="isActive('/about') ? 'underline' : ''"
+                href="/about"
+            >
+                About <span 
+                    class="size-1 bg-black outline outline-2 outline-black dark:outline-white group-hover:animate-spin group-hover:bg-primary"
+                    :class="isActive('/about') ? 'animate-spin bg-primary' : ''"
+                ></span>
+            </a>
+            <a 
+                class="flex items-center gap-2 rounded hover:underline group px-4 py-2"
+                :class="isActive('/legacy') ? 'underline' : ''"
+                href="/legacy"
+            >
+                Legacy <span 
+                    class="size-1 bg-black outline outline-2 outline-black dark:outline-white group-hover:animate-spin group-hover:bg-primary"
+                    :class="isActive('/legacy') ? 'animate-spin bg-primary' : ''"
+                ></span>
+            </a>
         </nav>
         <!-- <nav class="flex items-center gap-0 md:gap-2">
             <a class="hover:opacity-50" href="https://github.com/halfmage/pixelarticons" target="_blank">
@@ -32,7 +71,55 @@
             </a>
         </nav> -->
 
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 sm:gap-3">
+            <!-- Mobile Menu Button -->
+            <div x-data="{ 
+                open: false, 
+                currentPath: '',
+                init() {
+                    this.currentPath = window.location.pathname;
+                },
+                isActive(path) {
+                    const normalizedPath = this.currentPath.replace(/\/$/, '').replace(/\.html$/, '');
+                    const normalizedTarget = path.replace(/\/$/, '').replace(/\.html$/, '');
+                    if (normalizedTarget === '') {
+                        return normalizedPath === '' || normalizedPath === '/';
+                    }
+                    return normalizedPath === normalizedTarget || normalizedPath.startsWith(normalizedTarget + '/');
+                }
+            }" class="sm:hidden relative">
+                <button @click="open = !open" class="btn !px-2">
+                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z"/></svg>
+                </button>
+                <div 
+                    x-show="open"
+                    @click.away="open = false"
+                    x-transition
+                    class="absolute right-0 mt-2 w-48 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 rounded shadow-lg z-50"
+                >
+                    <a 
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        :class="isActive('/') ? 'bg-gray-100 dark:bg-gray-800' : ''"
+                        href="/"
+                    >
+                        Icons
+                    </a>
+                    <a 
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        :class="isActive('/about') ? 'bg-gray-100 dark:bg-gray-800' : ''"
+                        href="/about"
+                    >
+                        About
+                    </a>
+                    <a 
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        :class="isActive('/legacy') ? 'bg-gray-100 dark:bg-gray-800' : ''"
+                        href="/legacy"
+                    >
+                        Legacy
+                    </a>
+                </div>
+            </div>
             <!-- Theme Toggle -->
             <div x-data="{ 
                 theme: 'system',
@@ -119,11 +206,11 @@
                 </div>
             </div>
             
-            <a class="btn btn-primary" href="https://halfmage.gumroad.com/l/pixelarticons">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a class="btn btn-primary text-xs sm:text-base" href="https://halfmage.gumroad.com/l/pixelarticons">
+                <svg class="size-6" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19 22H5V20H19V22ZM9 6H15V4H17V6H21V20H19V8H17V10H15V8H9V10H7V8H5V20H3V6H7V4H9V6ZM15 4H9V2H15V4Z" fill="currentColor"/>
                 </svg>
-                Buy now
+                <span class="hidden sm:inline">Buy now</span>
             </a>
         </div>
     </div>
