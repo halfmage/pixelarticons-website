@@ -3,9 +3,34 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Superstar';
+    font-family: 'Nippo-Variable';
+    src: url('./fonts/Nippo-Variable.woff2') format('woff2'),
+         url('./fonts/Nippo-Variable.woff') format('woff'),
+         url('./fonts/Nippo-Variable.ttf') format('truetype');
+    font-weight: 200 700;
+    font-display: swap;
     font-style: normal;
-    font-weight: 400;
-    src: local(''),
-        url('../fonts/superstar_memesbruh03.woff') format('woff');
+}
+
+.btn {
+    @apply bg-white dark:bg-gray-900 dark:text-white hover:shadow-[2px_2px_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_rgba(255,255,255,1)] top-0 left-0 relative hover:-top-1 hover:-left-1 border border-black dark:border-white inline-flex gap-2 transition-all text-black px-4 py-2 rounded items-center duration-150
+}
+
+.btn-primary {
+    @extend .btn;
+    @apply !bg-primary !text-black dark:border-primary dark:hover:text-white dark:hover:shadow-[2px_2px_0_rgba(255,221,45,1)];
+}
+
+.btn-black {
+    @extend .btn;
+    @apply bg-black dark:bg-gray-900 text-white;
+}
+
+.btn-sm {
+    @extend .btn;
+    @apply text-xs px-3 py-1.5 hover:-top-0.5 hover:-left-0.5;
+}
+
+.icon-card {
+    @apply aspect-square px-1 py-4 rounded flex items-center justify-center flex-col hover:z-10 border border-white dark:border-black hover:border-black text-center relative hover:shadow-[2px_2px_0_rgba(0,0,0,1)] top-0 left-0 transition-all hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:border-white hover:-top-1 hover:-left-1 duration-150 cursor-pointer dark:hover:shadow-[2px_2px_0_rgba(255,255,255,1)]
 }

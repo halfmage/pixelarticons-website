@@ -11,10 +11,27 @@
         
         <!-- StyleSheet -->
         <link rel="stylesheet" href="/style.css" />
+        <!-- Theme initialization script - must run before Alpine.js to prevent flash -->
+        <script>
+            (function() {
+                const theme = localStorage.getItem('theme') || 'system';
+                let effectiveTheme = theme;
+                
+                if (theme === 'system') {
+                    effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                
+                if (effectiveTheme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            })();
+        </script>
         <script src="/js/alpine.js" defer></script>
     </head>
 
-    <body class="bg-gray-100 flex items-center justify-center min-h-screen relative p-3 md:p-6">
+    <body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white">
         {{ content | safe}}
         <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
         <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>

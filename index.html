@@ -2,7 +2,7 @@
 layout: BaseLayout
 ---
 
-<div class="bg-white overflow-hidden flex flex-col max-w-screen-2xl md:h-[calc(100vh-64px)] border border-gray-950" x-data="{ 
+<div class="" x-data="{ 
     search: '', 
     searchDebounced: '',
     searchTimeout: null,
@@ -92,218 +92,161 @@ layout: BaseLayout
     }
 }">
 
+    {% include "banner.html" %}
     {% include "header.html" %}
 
-    <div class="md:flex items-stretch overflow-hidden">
-        <div class="md:w-1/4 md:border-r border-gray-950 p-4 md:p-6 flex-shrink-0 overflow-auto">
 
-            <!-- Version Toggle -->
-            <div class="flex items-center w-full gap-2 mb-6">
-                <button 
-                    @click="iconVersion = 'new'"
-                    :class="iconVersion === 'new' ? 'bg-gray-950 text-white' : 'bg-white text-gray-800 border border-gray-300'"
-                    class="px-3 py-1.5 text-xs font-semibold transition-colors w-full"
-                >
-                    New icons
-                </button>
-                <button 
-                    @click="iconVersion = 'legacy'"
-                    :class="iconVersion === 'legacy' ? 'bg-gray-950 text-white' : 'bg-white text-gray-800 border border-gray-300'"
-                    class="px-3 py-1.5 text-xs font-semibold transition-colors"
-                >
-                    Legacy
-                </button>
-            </div>
 
-            <h1 class="text-xl mb-4 font-semibold tracking-tight">Deliberately pixelated</h1>
-            <p class="text-sm mt-4">Perfect for designers looking to add a touch of retro flair to their work, Pixelarticons stands out as a comprehensive and scalable library for unconventional user interfaces and websites.</p>
-
-            <!-- Legacy Mode Content -->
-            <div x-show="iconVersion === 'legacy'">
-                <div class="flex items-center gap-2 mt-4">
-                    <a class="font-semibold text-sm bg-gray-950 px-4 py-2 text-white" href="https://halfmage.gumroad.com/l/pixelarticons">        
-                        Get Pro
-                    </a>
-                    <a class="font-semibold text-sm bg-white border border-gray-300 px-4 py-2 text-gray-800" target="_blank" href="https://www.figma.com/file/eJzVfjFiJmHmUBRfanmufm/Pixelarticons---1.8.0?type=design&node-id=929-7279&mode=design">        
-                        Preview
-                    </a>
-                    <a class="font-semibold text-sm bg-white border border-gray-300 px-4 py-2 text-gray-800" target="_blank" href="https://www.figma.com/community/file/952542622393317653/pixelarticons-1-8-0">        
-                        Free Version
-                    </a>
-                </div>
-                
-                <div class="text-sm mt-8">
-                    <h2 class="text-xl mb-4 font-semibold tracking-tight">Install via package manager</h2>
-                    <p class="font-mono">npm i pixelarticons@1.8.0</p>
-                </div>
-            </div>
-
-            <!-- New Icons Mode Content -->
-            <div x-show="iconVersion === 'new'">
-                <div class="mt-4">
-                    <p class="text-sm text-gray-600">Browse the preview icons below. Click "Get SVG" on any icon to purchase the full SVG version.</p>
-                </div>
-                
-                <div class="text-sm mt-8">
-                    <h2 class="text-xl mb-4 font-semibold tracking-tight">Which versions are there?</h2>
-                    <div class="space-y-2">
-                        <a href="https://halfmage.gumroad.com/l/pixelarticons" target="_blank" class="block border border-gray-950 p-4 hover:bg-gray-100 transition-colors">
-                            <div class="flex items-center justify-between mb-1">
-                                <div class="font-semibold">SOLO</div>
-                                <div class="text-right font-semibold">€99</div>
-                            </div>
-                            <div class="text-xs text-gray-600">1 seat • Lifetime updates</div>
-                        </a>
-                        <a href="https://halfmage.gumroad.com/l/pixelarticons" target="_blank" class="block border border-gray-950 p-4 hover:bg-gray-100 transition-colors">
-                            <div class="flex items-center justify-between mb-1">
-                                <div class="font-semibold">TEAM</div>
-                                <div class="text-right font-semibold">€199</div>
-                            </div>
-                            <div class="text-xs text-gray-600">Up to 5 seats • Lifetime updates</div>
-                        </a>
-                        <a href="https://halfmage.gumroad.com/l/pixelarticons" target="_blank" class="block border border-gray-950 p-4 hover:bg-gray-100 transition-colors">
-                            <div class="flex items-center justify-between mb-1">
-                                <div class="font-semibold">AGENCY</div>
-                                <div class="text-right font-semibold">€349</div>
-                            </div>
-                            <div class="text-xs text-gray-600">Up to 15 seats • Lifetime updates</div>
-                        </a>
-                        <a href="https://halfmage.gumroad.com/l/pixelarticons" target="_blank" class="block border border-gray-950 p-4 hover:bg-gray-100 transition-colors">
-                            <div class="flex items-center justify-between mb-1">
-                                <div class="font-semibold">SUPPORTER</div>
-                                <div class="text-right font-semibold">€499</div>
-                            </div>
-                            <div class="text-xs text-gray-600">Unlimited seats • Lifetime updates • Website link</div>
-                        </a>
+            <!-- Hero Section -->
+            <div class="border-b border-gray-300 dark:border-gray-700">
+                <div class="container relative p-8 border-x border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
+                    <div class="max-w-lg text-left">
+                        <h1 class="text-3xl mb-3 tracking-tight">Deliberately pixelated</h1>
+                        <p class="text-sm mb-4 text-gray-700 dark:text-gray-300">Perfect for designers looking to add a touch of retro flair to their work, Pixelarticons stands out as a comprehensive and scalable library for unconventional user interfaces and websites.</p>
+                        <div class="flex items-center  gap-2">
+                            <a href="https://halfmage.gumroad.com/l/pixelarticons" class="btn btn-primary btn-sm">Buy now</a>
+                            <a href="#icon-grid" class="btn btn-sm" @click.prevent="document.querySelector('.icon-grid-container')?.scrollIntoView({ behavior: 'smooth', block: 'start' })">Explore</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="flex flex-col overflow-hidden flex-1">
-            <!-- Search Bar -->
-            <div class="p-4 border-b border-gray-950 bg-gray-50 sticky top-0 z-10">
-                <div class="flex items-center gap-3">
-                    <div class="relative flex-1">
-                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-gray-400" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h8v2H6V2zM4 6V4h2v2H4zm0 8H2V6h2v8zm2 2H4v-2h2v2zm8 0v2H6v-2h8zm2-2h-2v2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2zm0-8h2v8h-2V6zm0 0V4h-2v2h2z" fill="currentColor"/></svg>
-                        <input 
-                            type="text" 
-                            x-model="search" 
-                            placeholder="Search icons..." 
-                            class="w-full pl-10 pr-4 py-2.5 border border-gray-300 focus:border-gray-950 focus:ring-1 focus:ring-gray-950 outline-none transition-colors text-sm"
-                        >
-                        <button 
-                            x-show="search.length > 0" 
-                            @click="clearTimeout(searchTimeout); search = ''; searchDebounced = ''; currentPage = 1;" 
-                            class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                        >
-                            <svg class="size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M5 5h2v2H5V5Zm4 4H7V7h2v2Zm2 2H9V9h2v2Zm2 0h-2v2H9v2H7v2H5v2h2v-2h2v-2h2v-2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2Zm2-2v2h-2V9h2Zm2-2v2h-2V7h2Zm0 0V5h2v2h-2Z"/></svg>
-                        </button>
-                    </div>
-                    <!-- Size Switcher -->
-                    <div class="flex items-center gap-1 border border-gray-300 bg-white">
-                        <button 
-                            @click="iconSize = '24px'"
-                            :class="iconSize === '24px' ? 'bg-gray-950 text-white' : 'bg-white text-gray-800 hover:bg-gray-50'"
-                            class="px-3 py-2 text-xs font-semibold transition-colors"
-                            title="24px preview"
-                        >
-                            24px
-                        </button>
-                        <button 
-                            @click="iconSize = '48px'"
-                            :class="iconSize === '48px' ? 'bg-gray-950 text-white' : 'bg-white text-gray-800 hover:bg-gray-50'"
-                            class="px-3 py-2 text-xs font-semibold transition-colors"
-                            title="48px preview"
-                        >
-                            48px
-                        </button>
-                    </div>
+                    <svg class="absolute top-0 right-0 bottom-0 h-full w-auto opacity-25 dark:opacity-40" viewBox="0 0 528 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.1" d="M37.333 166.667H50.667V158.667H53.333V166.667H61.333V169.334H34.667V158.667H37.333V166.667ZM45.333 166.666H42.667V161.333H45.333V166.666ZM61.333 166.666H58.667V145.334H45.333V148H42.667V142.667H61.333V166.666ZM40 158.667H37.333V156H40V158.667ZM50.667 158.667H48V156H50.667V158.667ZM42.667 156H40V153.333H42.667V156ZM48 156H45.333V153.333H48V156ZM56 156H53.333V153.333H56V156ZM45.333 153.334H42.667V150.667H45.333V153.334ZM50.667 150.667H48V148H50.667V150.667ZM56 150.667H53.333V148H56V150.667ZM57.333 113.334H38.667V110.667H57.333V113.334ZM38.667 94.667H57.333V92H60V110.666H57.333V97.334H38.667V110.666H36V92H38.667V94.667ZM49.333 108H41.333V105.333H49.333V108ZM54.667 102.667H46.667V100H54.667V102.667ZM44 89.333H52V86.667H54.667V89.333H57.333V92H38.667V89.333H41.333V86.667H44V89.333ZM57.333 57.334H38.667V54.667H57.333V57.334ZM60 54.667H57.333V40H38.667V54.667H36V37.333H60V54.667ZM52 45.334H44V42.667H52V45.334ZM36 37.333H33.333V33.333H36V37.333ZM62.667 37.333H60V33.333H62.667V37.333ZM60 33.334H36V30.667H60V33.334Z" fill="currentColor"/>
+                        <path opacity="0.2" d="M130.667 169.334H109.333V166.667H112V161.334H114.667V166.667H130.667V169.334ZM109.333 166.666H106.667V145.333H109.333V166.666ZM133.333 166.666H130.667V145.333H133.333V166.666ZM125.333 164H122.667V161.333H125.333V164ZM122.667 161.333H114.667V158.666H122.667V161.333ZM128 161.333H125.333V158.666H128V161.333ZM125.333 158.667H122.667V156H125.333V158.667ZM117.333 156H114.667V153.333H117.333V156ZM114.667 153.334H112V150.667H114.667V153.334ZM125.333 153.334H117.333V150.667H125.333V153.334ZM117.333 150.667H114.667V148H117.333V150.667ZM130.667 145.334H128V150.666H125.333V145.334H109.333V142.667H130.667V145.334ZM114.667 104H117.333V106.667H120V109.334H117.333V112H114.667V114.666H112V109.334H109.333V106.667H112V101.333H114.667V104ZM130.667 112H125.333V109.333H130.667V112ZM125.333 109.333H122.667V104H125.333V109.333ZM133.333 109.333H130.667V104H133.333V109.333ZM109.333 106.666H106.667V101.333H109.333V106.666ZM130.667 104H125.333V101.333H130.667V104ZM114.667 98.667H109.333V96H114.667V98.667ZM122.667 98.667H120V96H122.667V98.667ZM130.667 98.667H128V96H130.667V98.667ZM109.333 96H106.667V90.667H109.333V96ZM117.333 96H114.667V90.667H117.333V96ZM125.333 96H122.667V90.667H125.333V96ZM133.333 96H130.667V90.667H133.333V96ZM114.667 90.667H109.333V88H114.667V90.667ZM122.667 90.667H120V88H122.667V90.667ZM130.667 90.667H128V88H130.667V90.667ZM133.333 57.334H106.667V54.667H133.333V57.334ZM133.333 52H106.667V49.333H133.333V52ZM120 44H122.667V46.667H109.333V44H117.333V41.333H120V44ZM133.333 46.667H128V44H133.333V46.667ZM109.333 38.667H112V41.334H109.333V44H106.667V33.333H109.333V38.667ZM125.333 44H122.667V33.333H125.333V44ZM117.333 41.334H114.667V38.667H117.333V41.334ZM133.333 41.334H128V38.667H133.333V41.334ZM114.667 38.667H112V36H114.667V38.667ZM121.333 37.334H118.667V34.667H121.333V37.334ZM133.333 36H128V33.333H133.333V36ZM122.667 33.334H109.333V30.667H122.667V33.334Z" fill="currentColor"/>
+                        <path opacity="0.4" d="M198.667 168H180V165.333H198.667V168ZM201.333 165.334H198.667V162.667H185.333V160H204V162.667H201.333V165.334ZM180 165.333H177.333V152H180V165.333ZM185.333 160H182.667V152H180V149.333H182.667V146.667H185.333V160ZM206.667 160H204V146.667H206.667V160ZM198.667 154.667H190.667V152H198.667V154.667ZM190.667 152H188V149.333H190.667V152ZM201.333 152H198.667V149.333H201.333V152ZM204 146.667H185.333V144H204V146.667ZM193.333 114.667H190.667V112H193.333V114.667ZM190.667 112H188V109.333H190.667V112ZM196 112H193.333V109.333H196V112ZM188 109.334H185.333V106.667H188V109.334ZM198.667 109.334H196V106.667H198.667V109.334ZM185.333 106.667H182.667V102.667H185.333V106.667ZM201.333 106.667H198.667V102.667H201.333V106.667ZM182.667 102.667H180V92H182.667V102.667ZM194.667 102.667H189.333V100H194.667V102.667ZM204 102.667H201.333V92H204V102.667ZM189.333 100H186.667V94.667H189.333V100ZM197.333 100H194.667V94.667H197.333V100ZM194.667 94.667H189.333V92H194.667V94.667ZM185.333 92H182.667V89.333H185.333V92ZM201.333 92H198.667V89.333H201.333V92ZM198.667 89.334H185.333V86.667H198.667V89.334ZM202.667 56H200V53.334H184V56H181.333V50.667H202.667V56ZM184 38.667H186.667V44H184V41.334H181.333V50.666H178.667V38.667H181.333V34.667H184V38.667ZM202.667 38.667H205.333V50.666H202.667V41.334H200V44H197.333V38.667H200V34.667H202.667V38.667ZM197.333 46.667H186.667V44H197.333V46.667ZM200 34.667H184V32H200V34.667Z" fill="currentColor"/>
+                        <path opacity="0.6" d="M277.333 169.333H274.667V166.667H277.333V169.333ZM274.667 166.667H272V164H274.667V166.667ZM266.667 164H256V161.333H266.667V164ZM272 164H269.333V161.333H272V164ZM256 161.333H253.333V158.667H256V161.333ZM269.333 161.333H266.667V158.667H269.333V161.333ZM253.333 158.667H250.667V148H253.333V158.667ZM262.667 152H266.667V154.667H262.667V158.667H260V154.667H256V152H260V148H262.667V152ZM272 158.667H269.333V148H272V158.667ZM256 148H253.333V145.333H256V148ZM269.333 148H266.667V145.333H269.333V148ZM266.667 145.333H256V142.667H266.667V145.333ZM256 113.334H253.333V110.667H256V113.334ZM253.333 110.667H250.667V108H253.333V110.667ZM258.667 110.667H256V108H258.667V110.667ZM266.667 110.667H264V108H266.667V110.667ZM256 108H253.333V105.333H256V108ZM258.667 102.667H261.333V105.333H264V108H258.667V105.334H256V100H258.667V102.667ZM266.667 105.334H264V102.667H266.667V105.334ZM269.333 102.667H266.667V100H269.333V102.667ZM256 100H253.333V97.333H256V100ZM261.333 100H258.667V97.333H261.333V100ZM272 100H269.333V97.333H272V100ZM264 97.334H261.333V94.667H264V97.334ZM274.667 97.334H272V94.667H274.667V97.334ZM266.667 94.667H264V92H266.667V94.667ZM277.333 94.667H274.667V89.334H269.333V86.667H277.333V94.667ZM269.333 92H266.667V89.333H269.333V92ZM253.333 54.667H274.667V38.667H277.333V57.334H250.667V38.667H253.333V54.667ZM272 49.334H269.333V54.666H266.667V49.334H261.333V54.666H258.667V49.334H256V46.667H272V49.334ZM262.667 41.333H265.333V38.667H268V44H260V38.667H262.667V41.333ZM256 38.667H253.333V36H256V38.667ZM265.333 38.667H262.667V36H265.333V38.667ZM274.667 38.667H272V36H274.667V38.667ZM258.667 36H256V33.333H258.667V36ZM272 36H269.333V33.333H272V36ZM269.333 33.334H258.667V30.667H269.333V33.334Z" fill="currentColor"/>
+                        <path opacity="0.8" d="M346.667 168H325.333V165.333H346.667V168ZM325.333 149.333H344V146.667H346.667V149.333H349.333V165.333H346.667V162.667H338.667V154.667H346.667V152H325.333V165.334H322.667V146.667H325.333V149.333ZM341.333 160H346.667V157.334H341.333V160ZM344 146.667H325.333V144H344V146.667ZM328 113.333H325.333V108H328V113.333ZM346.667 113.333H344V108H346.667V113.333ZM330.667 108H328V105.333H330.667V108ZM344 108H341.333V105.333H344V108ZM341.333 105.334H330.667V102.667H341.333V105.334ZM340 100H332V97.333H340V100ZM332 97.333H329.334V89.333H332V97.333ZM342.667 97.333H340V89.333H342.667V97.333ZM340 89.334H332V86.667H340V89.334ZM345.333 58.667H342.667V56H345.333V58.667ZM342.667 56H337.333V53.333H342.667V56ZM340 50.667H337.333V53.334H334.667V50.667H332V48H340V50.667ZM332 48H329.333V45.333H332V48ZM342.667 48H340V45.333H342.667V48ZM329.333 45.334H326.667V34.667H329.333V45.334ZM345.333 45.334H342.667V34.667H345.333V45.334ZM340 40H337.333V37.333H340V40ZM337.333 37.334H334.667V34.667H337.333V37.334ZM332 34.667H329.333V32H332V34.667ZM342.667 34.667H340V32H342.667V34.667ZM340 32H332V29.333H340V32Z" fill="currentColor"/>
+                        <path opacity="0.9" d="M402.667 169.334H397.333V166.667H402.667V169.334ZM418.667 169.334H413.333V166.667H418.667V169.334ZM413.333 166.667H402.667V164H413.333V166.667ZM402.667 164H397.333V161.333H402.667V164ZM418.667 164H413.333V161.333H418.667V164ZM410.667 161.334H405.333V158.667H410.667V161.334ZM405.333 158.667H402.667V156H405.333V158.667ZM413.333 158.667H410.667V156H413.333V158.667ZM402.667 156H400V150.667H402.667V156ZM416 156H413.333V150.667H416V156ZM405.333 150.667H402.667V148H405.333V150.667ZM413.333 150.666H410.667V145.333H413.333V150.666ZM408 148H405.333V145.333H408V148ZM410.667 145.334H408V142.667H410.667V145.334ZM406.667 112H402.667V109.333H406.667V112ZM413.333 112H409.333V109.333H413.333V112ZM409.333 96H412V98.667H409.333V109.334H406.667V98.667H404V96H406.667V90.667H409.333V96ZM405.333 104H402.667V109.333H400V104H397.333V101.333H405.333V104ZM418.667 104H416V109.333H413.333V104H410.667V101.333H418.667V104ZM397.333 101.334H394.667V98.667H397.333V101.334ZM421.333 101.334H418.667V98.667H421.333V101.334ZM394.667 98.666H392V93.333H394.667V98.666ZM424 98.666H421.333V93.333H424V98.666ZM404 96H401.333V93.333H404V96ZM414.667 96H412V93.333H414.667V96ZM401.333 93.334H394.667V90.667H401.333V93.334ZM421.333 93.334H414.667V90.667H421.333V93.334ZM406.667 90.667H404V88H406.667V90.667ZM412 90.667H409.333V88H412V90.667ZM421.333 57.334H394.667V49.333H397.333V54.667H418.667V42.667H421.333V57.334ZM416 40H418.667V42.667H416V54.666H413.333V33.333H416V40ZM408 46.667H400V49.334H397.333V44H408V46.667ZM397.333 44H394.667V38.667H397.333V44ZM410.667 44H408V38.667H410.667V44ZM400 36H408V38.667H397.333V33.333H400V36ZM413.333 33.334H400V30.667H413.333V33.334Z" fill="currentColor"/>
+                        <path d="M490.667 169.334H469.333V166.667H490.667V169.334ZM488 145.334H485.333V150.667H490.667V148H493.333V166.667H490.667V153.334H482.667V145.334H469.333V142.667H488V145.334ZM469.333 166.666H466.667V145.333H469.333V166.666ZM477.333 164H474.667V161.333H477.333V164ZM482.667 164H480V161.333H482.667V164ZM474.667 161.334H472V158.667H474.667V161.334ZM485.333 161.334H482.667V158.667H485.333V161.334ZM477.333 158.667H474.667V156H477.333V158.667ZM482.667 158.667H480V156H482.667V158.667ZM490.667 148H488V145.333H490.667V148ZM490.667 113.334H469.333V110.667H490.667V113.334ZM469.333 110.666H466.667V89.333H469.333V110.666ZM477.333 96H480V93.333H485.333V96H488V93.333H493.333V110.666H490.667V96H488V98.667H485.333V101.333H482.667V96H480V98.667H477.333V101.333H474.667V89.334H469.333V86.667H477.333V96ZM476 106.667H473.333V104H476V106.667ZM481.333 106.667H478.667V104H481.333V106.667ZM486.667 106.667H484V104H486.667V106.667ZM482.667 52H488V54.667H482.667V57.334H477.333V54.667H480V44H477.333V41.333H482.667V52ZM477.333 54.667H472V52H477.333V54.667ZM472 38.667H469.333V49.333H472V52H466.667V36H472V38.667ZM493.333 52H488V49.333H490.667V38.667H488V36H493.333V52ZM477.333 41.334H472V38.667H477.333V41.334ZM488 41.334H482.667V38.667H488V41.334ZM477.333 36H472V33.333H477.333V36ZM488 36H482.667V33.333H488V36ZM482.667 33.334H477.333V30.667H482.667V33.334Z" fill="currentColor"/>
+                        </svg>
+                        
+                            
                 </div>
             </div>
             
-            <!-- Icon Grid -->
-            <div class="flex flex-col flex-1 overflow-hidden">
-                <div class="icon-grid-container grid grid-cols-5 md:grid-cols-6 xl:grid-cols-8 auto-rows-max overflow-auto flex-1">
-                    <!-- Legacy Icons -->
-                    {% for icon in pixelarticons %}
-                    <div 
-                        class="aspect-square px-1 py-4 border border-white hover:border-gray-200 flex items-center justify-center flex-col text-center relative hover:bg-gray-100 group"
-                        x-show="iconVersion === 'legacy' && '{{ icon.nameWithoutExtension }}'.toLowerCase().includes(search.toLowerCase())"
-                    >
-                        <div :style="{ width: iconSize, height: iconSize }" style="width: 24px; height: 24px;" class="flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
-                            {{ icon.sourceWithClass | safe }}
+            <div class="container p-8 border-x border-b border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
+                <!-- Search Bar -->
+                <div class="bg-white dark:bg-black">
+                    <div class="flex items-center gap-3">
+                        <div class="relative flex-1 group">
+                            <svg class="absolute left-3 top-1/2 -translate-y-1/2 size-6" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2h8v2H6V2zM4 6V4h2v2H4zm0 8H2V6h2v8zm2 2H4v-2h2v2zm8 0v2H6v-2h8zm2-2h-2v2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2zm0-8h2v8h-2V6zm0 0V4h-2v2h2z" fill="currentColor"/></svg>
+                            <input
+                                type="text"
+                                x-model="search"
+                                placeholder="Search icons..."
+                                class="w-full pl-12 pr-4 py-2.5 border border-gray-300 group-hover:border-gray-400 dark:border-gray-700 group-hover:dark:border-gray-500 rounded placeholder:font-normal placeholder:tracking-wide focus:border-gray-950 focus:ring-1 ring-inset focus:ring-gray-950 outline-none transition-colors text-sm dark:bg-black dark:text-white dark:ring-white dark:focus:ring-white"
+                            >
+                            <button
+                                x-show="search.length > 0"
+                                @click="clearTimeout(searchTimeout); search = ''; searchDebounced = ''; currentPage = 1;"
+                                class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                            >
+                                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M5 5h2v2H5V5Zm4 4H7V7h2v2Zm2 2H9V9h2v2Zm2 0h-2v2H9v2H7v2H5v2h2v-2h2v-2h2v-2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2Zm2-2v2h-2V9h2Zm2-2v2h-2V7h2Zm0 0V5h2v2h-2Z"/></svg>
+                            </button>
                         </div>
-                        <div class="w-full truncate px-2 text-gray-700 mt-2 text-xs">{{ icon.nameWithoutExtension }}</div>
-                        <div class="sr-only" id="icon-{{ icon.nameWithoutExtension }}">{{ icon.source }}</div>
-                        <button class="icon-clip absolute top-0 right-0 hidden group-hover:block p-1 hover:bg-gray-300 transition-colors" data-clipboard-target="#icon-{{ icon.nameWithoutExtension }}">
-                            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M4 2h11v2H6v13H4V2Zm4 4h12v16H8V6Zm2 2v12h8V8h-8Z"/></svg>
-                        </button>
+                        <!-- Size Switcher -->
+                        <div class="flex items-center gap-2">
+                            <button
+                                @click="iconSize = '24px'"
+                                :class="iconSize === '24px' ? 'btn-black' : 'btn'"
+                                class="px-4 py-2 text-sm rounded leading-6 border border-black"
+                                title="24px preview"
+                            >
+                                24px
+                            </button>
+                            <button
+                                @click="iconSize = '48px'"
+                                :class="iconSize === '48px' ? 'btn-black' : 'btn'"
+                                class="px-4 py-2 text-sm rounded leading-6 border border-black"
+                                title="48px preview"
+                            >
+                                48px
+                            </button>
+                        </div>
                     </div>
-                    {% endfor %}
-                    
-                    <!-- New Icons (Paginated) - Only render visible icons -->
-                    <template x-for="icon in paginatedNewIcons" :key="icon.name">
-                        <div 
-                            class="aspect-square px-1 py-4 border border-white hover:border-gray-200 flex items-center justify-center flex-col text-center relative hover:bg-gray-100 group"
-                            x-show="iconVersion === 'new'"
-                        >
-                            <img :src="icon.path" :alt="icon.nameWithoutExtension" loading="lazy" :style="{ width: iconSize, height: iconSize }" style="width: 24px; height: 24px;" />
-                            <div class="w-full truncate px-2 text-gray-700 mt-2 text-xs" x-text="icon.nameWithoutExtension"></div>
-                            <a href="https://halfmage.gumroad.com/l/pixelarticons" target="_blank" class="absolute top-1 right-1 hidden group-hover:block p-1 hover:bg-gray-700 transition-colors bg-gray-950 text-white text-xs px-2 py-1">
-                                Get SVG
-                            </a>
-                        </div>
-                    </template>
                 </div>
+                <div class="flex flex-col overflow-hidden flex-1 w-full mt-2">
+                    <!-- Icon Grid -->
+                    <div class="flex flex-col flex-1 overflow-hidden">
+                        <div id="icon-grid" class="icon-grid-container grid grid-cols-5 md:grid-cols-6 lg:grid-cols-12 auto-rows-max overflow-auto flex-1 px-1 py-3">
+                            <!-- Legacy Icons -->
+                            {% for icon in pixelarticons %}
+                            <div
+                                class="aspect-square px-1 py-4 flex items-center justify-center flex-col text-center relative hover:bg-gray-100 group"
+                                x-show="iconVersion === 'legacy' && '{{ icon.nameWithoutExtension }}'.toLowerCase().includes(search.toLowerCase())"
+                            >
+                                <div :style="{ width: iconSize, height: iconSize }" style="width: 24px; height: 24px;" class="flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
+                                    {{ icon.sourceWithClass | safe }}
+                                </div>
+                                <div class="w-full truncate px-2 text-gray-700 mt-2 text-xs">{{ icon.nameWithoutExtension }}</div>
+                                <div class="sr-only" id="icon-{{ icon.nameWithoutExtension }}">{{ icon.source }}</div>
+                                <button class="icon-clip absolute top-0 right-0 hidden group-hover:block p-1 hover:bg-gray-300 transition-colors" data-clipboard-target="#icon-{{ icon.nameWithoutExtension }}">
+                                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M4 2h11v2H6v13H4V2Zm4 4h12v16H8V6Zm2 2v12h8V8h-8Z"/></svg>
+                                </button>
+                            </div>
+                            {% endfor %}
                 
-                <!-- Pagination Controls (only show for new icons) -->
-                <div x-show="iconVersion === 'new' && totalPages > 1" class="border-t border-gray-950 bg-gray-50 p-4 flex items-center justify-between flex-wrap gap-4">
-                    <div class="text-sm text-gray-600">
-                        <span x-show="filteredNewIcons.length > 0">
-                            Showing <span x-text="(currentPage - 1) * itemsPerPage + 1"></span> - 
-                            <span x-text="Math.min(currentPage * itemsPerPage, filteredNewIcons.length)"></span> 
-                            of <span x-text="filteredNewIcons.length"></span> icons
-                        </span>
-                        <span x-show="filteredNewIcons.length === 0">No icons found</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <button 
-                            @click="goToPage(currentPage - 1)"
-                            :disabled="currentPage === 1"
-                            :class="currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200'"
-                            class="px-3 py-1.5 border border-gray-300 bg-white text-sm font-semibold transition-colors"
-                        >
-                            Previous
-                        </button>
-                        <div class="flex items-center gap-1">
-                            <template x-for="page in Array.from({length: Math.min(7, totalPages)}, (_, i) => {
-                                if (totalPages <= 7) return i + 1;
-                                if (currentPage <= 4) return i + 1;
-                                if (currentPage >= totalPages - 3) return totalPages - 6 + i;
-                                return currentPage - 3 + i;
-                            })" :key="page">
-                                <button 
-                                    @click="goToPage(page)"
-                                    :class="page === currentPage ? 'bg-gray-950 text-white' : 'bg-white text-gray-800 hover:bg-gray-100'"
-                                    class="px-3 py-1.5 border border-gray-300 text-sm font-semibold transition-colors min-w-[2.5rem]"
-                                    x-text="page"
-                                ></button>
+                            <!-- New Icons (Paginated) - Only render visible icons -->
+                            <template x-for="icon in paginatedNewIcons" :key="icon.name">
+                                <div
+                                    class="icon-card group"
+                                    x-show="iconVersion === 'new'"
+                                >
+                                    <img class="dark:invert" :src="icon.path" :alt="icon.nameWithoutExtension" loading="lazy" :style="{ width: iconSize, height: iconSize }" style="width: 24px; height: 24px;" />
+                                    <div class="hidden w-full truncate px-2 text-gray-700 mt-2 text-xs" x-text="icon.nameWithoutExtension"></div>
+                                    <a href="https://halfmage.gumroad.com/l/pixelarticons" target="_blank" class="rounded absolute -top-2 -right-2 hidden group-hover:block p-1 transition-colors bg-primary border border-black text-black text-[10px] px-2 py-1 hover:bg-black hover:text-white">
+                                        Get SVG
+                                    </a>
+                                </div>
                             </template>
                         </div>
-                        <button 
-                            @click="goToPage(currentPage + 1)"
-                            :disabled="currentPage === totalPages"
-                            :class="currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200'"
-                            class="px-3 py-1.5 border border-gray-300 bg-white text-sm font-semibold transition-colors"
-                        >
-                            Next
-                        </button>
+                    </div>
+                </div>
+                <!-- Pagination Controls (only show for new icons) -->
+                <div x-show="iconVersion === 'new' && totalPages > 1" class="">
+                    <div class="flex items-center justify-between p-6">
+                        <div class="text-sm text-gray-600">
+                            <span x-show="filteredNewIcons.length > 0">
+                                Showing <span x-text="(currentPage - 1) * itemsPerPage + 1"></span> -
+                                <span x-text="Math.min(currentPage * itemsPerPage, filteredNewIcons.length)"></span>
+                                of <span x-text="filteredNewIcons.length"></span> icons
+                            </span>
+                            <span x-show="filteredNewIcons.length === 0">No icons found</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <button
+                                @click="goToPage(currentPage - 1)"
+                                :disabled="currentPage === 1"
+                                :class="currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200'"
+                                class="btn btn-sm"
+                            >
+                                Previous
+                            </button>
+                            <div class="flex items-center gap-1">
+                                <template x-for="page in Array.from({length: Math.min(7, totalPages)}, (_, i) => {
+                                    if (totalPages <= 7) return i + 1;
+                                    if (currentPage <= 4) return i + 1;
+                                    if (currentPage >= totalPages - 3) return totalPages - 6 + i;
+                                    return currentPage - 3 + i;
+                                })" :key="page">
+                                    <button
+                                        @click="goToPage(page)"
+                                        :class="page === currentPage ? 'bg-gray-950 text-white' : 'bg-white text-gray-800 hover:bg-gray-100'"
+                                        class="btn btn-sm"
+                                        x-text="page"
+                                    ></button>
+                                </template>
+                            </div>
+                            <button
+                                @click="goToPage(currentPage + 1)"
+                                :disabled="currentPage === totalPages"
+                                :class="currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200'"
+                                class="btn btn-sm"
+                            >
+                                Next
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+   
 
 </div>

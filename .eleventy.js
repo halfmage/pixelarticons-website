@@ -20,6 +20,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({"./_tmp/style.css": "./style.css"});
   eleventyConfig.addPassthroughCopy({"./node_modules/clipboard/dist/clipboard.min.js": "./js/clipboard.js"});
   eleventyConfig.addPassthroughCopy("favicon.svg");
+  eleventyConfig.addPassthroughCopy("logo.svg");
 
   eleventyConfig.addPlugin(svgContents);
 
