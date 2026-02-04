@@ -3,8 +3,14 @@
         <a href="/" class="p-2">
             <img src="/logo.svg" alt="Pixelarticons" class="h-5 sm:h-6 hover:scale-110 hover:-rotate-6 transition-all duration-100">
         </a>
-        <nav class="hidden sm:flex items-center gap-2" x-data="{ 
+        <nav class="hidden sm:flex items-center gap-2" x-data="{
             currentPath: '',
+            navItems: [
+                { href: '/', label: 'Icons' },
+                { href: '/about', label: 'About' },
+                { href: '/examples', label: 'Examples' },
+                { href: '/legacy', label: 'Legacy' }
+            ],
             init() {
                 this.currentPath = window.location.pathname;
             },
@@ -17,75 +23,31 @@
                 return normalizedPath === normalizedTarget || normalizedPath.startsWith(normalizedTarget + '/');
             }
         }">
-            <a 
-                class="flex items-center gap-2 rounded hover:underline group px-4 py-2"
-                :class="isActive('/') ? 'underline' : ''"
-                href="/"
-            >
-                Icons<span 
-                    class="size-1 bg-black outline outline-2 outline-black dark:outline-white group-hover:animate-spin group-hover:bg-primary"
-                    :class="isActive('/') ? 'animate-spin bg-primary' : ''"
-                ></span>
-            </a>
-            <a 
-                class="flex items-center gap-2 rounded hover:underline group px-4 py-2"
-                :class="isActive('/about') ? 'underline' : ''"
-                href="/about"
-            >
-                About <span 
-                    class="size-1 bg-black outline outline-2 outline-black dark:outline-white group-hover:animate-spin group-hover:bg-primary"
-                    :class="isActive('/about') ? 'animate-spin bg-primary' : ''"
-                ></span>
-            </a>
-            <a 
-                class="flex items-center gap-2 rounded hover:underline group px-4 py-2"
-                :class="isActive('/examples') ? 'underline' : ''"
-                href="/examples"
-            >
-                Examples <span 
-                    class="size-1 bg-black outline outline-2 outline-black dark:outline-white group-hover:animate-spin group-hover:bg-primary"
-                    :class="isActive('/examples') ? 'animate-spin bg-primary' : ''"
-                ></span>
-            </a>
-            <a 
-                class="flex items-center gap-2 rounded hover:underline group px-4 py-2"
-                :class="isActive('/legacy') ? 'underline' : ''"
-                href="/legacy"
-            >
-                Legacy <span 
-                    class="size-1 bg-black outline outline-2 outline-black dark:outline-white group-hover:animate-spin group-hover:bg-primary"
-                    :class="isActive('/legacy') ? 'animate-spin bg-primary' : ''"
-                ></span>
-            </a>
+            <template x-for="item in navItems" :key="item.href">
+                <a
+                    class="flex items-center gap-2 rounded hover:underline group px-4 py-2"
+                    :class="isActive(item.href) ? 'underline' : ''"
+                    :href="item.href"
+                >
+                    <span x-text="item.label"></span><span
+                        class="size-1 bg-black outline outline-2 outline-black dark:outline-white group-hover:animate-spin group-hover:bg-primary"
+                        :class="isActive(item.href) ? 'animate-spin bg-primary' : ''"
+                    ></span>
+                </a>
+            </template>
         </nav>
-        <!-- <nav class="flex items-center gap-0 md:gap-2">
-            <a class="hover:opacity-50" href="https://github.com/halfmage/pixelarticons" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6">
-                    <path fill="currentColor" d="M5 2h4v2H7v2H5V2Zm0 10H3V6h2v6Zm2 2H5v-2h2v2Zm2 2v-2H7v2H3v-2H1v2h2v2h4v4h2v-4h2v-2H9Zm0 0v2H7v-2h2Zm6-12v2H9V4h6Zm4 2h-2V4h-2V2h4v4Zm0 6V6h2v6h-2Zm-2 2v-2h2v2h-2Zm-2 2v-2h2v2h-2Zm0 2h-2v-2h2v2Zm0 0h2v4h-2v-4Z"/>
-                </svg>              
-            </a>
-            <a class="ml-2 hover:opacity-50" href="https://www.npmjs.com/package/pixelarticons" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6">
-                    <path fill="currentColor" d="M3 3h18v18h-6V10h-3v11H3V3Zm14 16h2V5H5v14h5V8h7v11Z"/>
-                </svg>                                        
-            </a>
-            <a class="ml-2 hover:opacity-50" href="https://www.figma.com/community/file/952542622393317653" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6">
-                    <path fill="currentColor" d="M11 2H7v2H5v4h2v2H5v4h2v2H5v4h2v2h4v-2h2v-4h4v-2h2v-4h-2V8h2V4h-2V2h-6Zm6 2v4h-4V4h4Zm-4 10v-4h4v4h-4Zm-2 6H7v-4h4v4Zm-4-6v-4h4v4H7Zm0-6V4h4v4H7Z"/>
-                </svg>              
-            </a>
-            <a class="ml-2 hover:opacity-50" href="https://halfmage.gumroad.com/l/pixelarticons">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6">
-                    <path fill="currentColor" d="M9 2h6v2H9V2Zm6 4V4h2v2h4v16H3V6h4V4h2v2h6Zm0 2H9v2H7V8H5v12h14V8h-2v2h-2V8Z"/>
-                </svg>              
-            </a>
-        </nav> -->
 
         <div class="flex items-center gap-2 sm:gap-3">
             <!-- Mobile Menu Button -->
-            <div x-data="{ 
-                open: false, 
+            <div x-data="{
+                open: false,
                 currentPath: '',
+                navItems: [
+                    { href: '/', label: 'Icons' },
+                    { href: '/about', label: 'About' },
+                    { href: '/examples', label: 'Examples' },
+                    { href: '/legacy', label: 'Legacy' }
+                ],
                 init() {
                     this.currentPath = window.location.pathname;
                 },
@@ -101,40 +63,20 @@
                 <button @click="open = !open" class="btn !px-2">
                     <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z"/></svg>
                 </button>
-                <div 
+                <div
                     x-show="open"
                     @click.away="open = false"
                     x-transition
                     class="absolute right-0 mt-2 w-48 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 rounded shadow-lg z-50"
                 >
-                    <a 
-                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                        :class="isActive('/') ? 'bg-gray-100 dark:bg-gray-800' : ''"
-                        href="/"
-                    >
-                        Icons
-                    </a>
-                    <a 
-                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                        :class="isActive('/about') ? 'bg-gray-100 dark:bg-gray-800' : ''"
-                        href="/about"
-                    >
-                        About
-                    </a>
-                    <a 
-                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                        :class="isActive('/examples') ? 'bg-gray-100 dark:bg-gray-800' : ''"
-                        href="/examples"
-                    >
-                        Examples
-                    </a>
-                    <a 
-                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                        :class="isActive('/legacy') ? 'bg-gray-100 dark:bg-gray-800' : ''"
-                        href="/legacy"
-                    >
-                        Legacy
-                    </a>
+                    <template x-for="item in navItems" :key="item.href">
+                        <a
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                            :class="isActive(item.href) ? 'bg-gray-100 dark:bg-gray-800' : ''"
+                            :href="item.href"
+                            x-text="item.label"
+                        ></a>
+                    </template>
                 </div>
             </div>
             <!-- Theme Toggle -->

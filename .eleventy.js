@@ -3,6 +3,7 @@ const svgContents = require("eleventy-plugin-svg-contents");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setUseGitIgnore(false);
+  eleventyConfig.ignores.add("CLAUDE.md");
 
   // Custom files
   eleventyConfig.addWatchTarget("./_tmp/style.css");

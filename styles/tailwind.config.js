@@ -10,12 +10,9 @@ module.exports = {
         "white": "#fff",
         primary: "#FFDD2D",
         gray: colors.neutral,
-        violet: colors.violet,
-        cyan: colors.cyan,
-        blue: colors.blue
       },
       fontFamily: {
-        sans: ['Nippo-Variable', 'sans-serf'],
+        sans: ['Nippo-Variable', 'sans-serif'],
       },
       container: {
           center: true,
