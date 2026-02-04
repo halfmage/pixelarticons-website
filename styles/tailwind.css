@@ -13,7 +13,7 @@
 }
 
 .btn {
-    @apply bg-white dark:bg-gray-900 dark:text-white hover:shadow-[2px_2px_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_rgba(255,255,255,1)] top-0 left-0 relative hover:-top-1 hover:-left-1 border border-black dark:border-white inline-flex gap-2 transition-all text-black px-4 py-2 rounded items-center duration-150
+    @apply text-center bg-white dark:bg-gray-900 dark:text-white hover:shadow-[2px_2px_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_rgba(255,255,255,1)] top-0 left-0 relative hover:-top-1 hover:-left-1 border border-black dark:border-white inline-flex justify-center gap-2 transition-all text-black px-4 py-2 rounded items-center duration-150
 }
 
 .btn-primary {
