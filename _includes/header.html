@@ -39,6 +39,16 @@
             </a>
             <a 
                 class="flex items-center gap-2 rounded hover:underline group px-4 py-2"
+                :class="isActive('/examples') ? 'underline' : ''"
+                href="/examples"
+            >
+                Examples <span 
+                    class="size-1 bg-black outline outline-2 outline-black dark:outline-white group-hover:animate-spin group-hover:bg-primary"
+                    :class="isActive('/examples') ? 'animate-spin bg-primary' : ''"
+                ></span>
+            </a>
+            <a 
+                class="flex items-center gap-2 rounded hover:underline group px-4 py-2"
                 :class="isActive('/legacy') ? 'underline' : ''"
                 href="/legacy"
             >
@@ -110,6 +120,13 @@
                         href="/about"
                     >
                         About
+                    </a>
+                    <a 
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        :class="isActive('/examples') ? 'bg-gray-100 dark:bg-gray-800' : ''"
+                        href="/examples"
+                    >
+                        Examples
                     </a>
                     <a 
                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
