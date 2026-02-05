@@ -1,0 +1,39 @@
+---
+permalink: /icons.json
+eleventyExcludeFromCollections: true
+---
+{
+  "name": "Pixelarticons",
+  "version": "{{ meta.version }}",
+  "description": "{{ meta.description }}",
+  "website": "{{ meta.url }}",
+  "author": {
+    "name": "Gerrit Halfmann",
+    "twitter": "@halfmage",
+    "website": "https://halfmage.com"
+  },
+  "license": {
+    "free": "PNG previews for personal and commercial use",
+    "pro": "Full SVG access with commercial license",
+    "purchase_url": "https://halfmage.gumroad.com/l/pixelarticons"
+  },
+  "specifications": {
+    "grid_size": "24x24",
+    "valid_scales": [12, 24, 48, 72, 96, 120, 144],
+    "formats": ["png", "svg"]
+  },
+  "styles": ["base", "sharp", "glyph", "solid"],
+  "total_count": {{ newicons.length }},
+  "generated_at": "{{ page.date | dateToISO }}",
+  "icons": [
+    {%- for icon in newicons %}
+    {
+      "name": "{{ icon.nameWithoutExtension }}",
+      "baseName": "{{ icon.baseName }}",
+      "style": "{{ icon.style }}",
+      "filename": "{{ icon.filename }}",
+      "path": "{{ icon.path }}"
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}

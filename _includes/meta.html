@@ -1,8 +1,9 @@
 <meta name="description" content="{{ description or meta.description }}" />
-<link rel="canonical" href="{{ meta.url }}" />
+<link rel="canonical" href="{{ meta.url }}{{ page.url }}" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@halfmage" />
+<meta name="twitter:title" content="{% if title %}{{ title }}{% else %}{{ meta.title }}{% endif %}" />
 <meta
   name="twitter:description"
   content="{{ renderData.description or description or meta.description }}"
@@ -10,14 +11,14 @@
 <meta name="twitter:image" content="{{ meta.url }}/social.png" />
 <meta name="twitter:creator" content="@halfmage" />
 
-<meta property="og:url" content="{{ meta.url }}" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="{{ meta.title }}" />
+<meta property="og:url" content="{{ meta.url }}{{ page.url }}" />
+<meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}" />
+<meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ meta.title }}{% endif %}" />
 <meta
   property="og:description"
   content="{{ renderData.description or description or meta.description }}"
 />
-<meta property="og:site_name" content="{{ meta.title }}" />
+<meta property="og:site_name" content="Pixelarticons" />
 <meta property="og:locale" content="{{ meta.locale }}" />
 <meta property="og:image" content="{{ meta.url }}/social.png" />
 <meta

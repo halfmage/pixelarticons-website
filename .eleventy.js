@@ -8,6 +8,11 @@ module.exports = function (eleventyConfig) {
   // Custom files
   eleventyConfig.addWatchTarget("./_tmp/style.css");
 
+  // Date filter for sitemap
+  eleventyConfig.addFilter("dateToISO", (date) => {
+    return new Date(date).toISOString().split('T')[0];
+  });
+
   // Alpine JS
   eleventyConfig.addPassthroughCopy({
     './node_modules/alpinejs/dist/cdn.min.js': './js/alpine.js',
@@ -24,6 +29,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.svg");
   eleventyConfig.addPassthroughCopy("logo.svg");
   eleventyConfig.addPassthroughCopy("pixelarticons2014.jpg");
+  eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addPassthroughCopy("llms.txt");
 
   eleventyConfig.addPlugin(svgContents);
 

@@ -1,5 +1,7 @@
 ---
 layout: BaseLayout
+title: "Pixelarticons - 2000+ Pixel Icons | Deliberately Pixelated"
+description: "Browse and search 2131+ pixel art icons designed on a 24x24px grid. Deliberately pixelated icons for modern web design. Free PNG previews, Pro SVG access."
 ---
 
 <div class="" x-data="{ 
@@ -200,6 +202,18 @@ layout: BaseLayout
                     </div>
                 </div>
             </div>
-   
+
+    <!-- Noscript fallback for crawlers -->
+    <noscript>
+        <div class="container p-4 sm:p-6 md:p-8 border-x border-b border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
+            <h2 class="text-xl mb-4">All Icons</h2>
+            <p class="text-sm text-gray-600 mb-4">Complete list of {{ newicons.length }} pixel art icons:</p>
+            <ul class="columns-2 sm:columns-3 md:columns-4 lg:columns-6 text-xs text-gray-700">
+                {% for icon in newicons %}
+                <li>{{ icon.nameWithoutExtension }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </noscript>
 
 </div>

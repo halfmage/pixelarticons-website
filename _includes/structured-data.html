@@ -1,0 +1,99 @@
+<!-- Website Schema - All Pages -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Pixelarticons",
+  "url": "{{ meta.url }}",
+  "description": "{{ meta.description }}",
+  "author": {
+    "@type": "Person",
+    "name": "Gerrit Halfmann",
+    "url": "https://halfmage.com"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "{{ meta.url }}/?search={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+{% if page.url == "/" %}
+<!-- SoftwareApplication Schema - Homepage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Pixelarticons",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any",
+  "description": "{{ meta.description }}",
+  "url": "{{ meta.url }}",
+  "author": {
+    "@type": "Person",
+    "name": "Gerrit Halfmann",
+    "url": "https://halfmage.com"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free Version",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "PNG previews for personal and commercial use"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro Version",
+      "url": "https://halfmage.gumroad.com/l/pixelarticons",
+      "description": "Full SVG access with commercial license"
+    }
+  ]
+}
+</script>
+
+<!-- ImageGallery Schema - Homepage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Pixelarticons Icon Collection",
+  "description": "Browse 2000+ pixel art icons designed on a 24x24px grid",
+  "url": "{{ meta.url }}",
+  "numberOfItems": {{ newicons.length }},
+  "author": {
+    "@type": "Person",
+    "name": "Gerrit Halfmann"
+  }
+}
+</script>
+{% endif %}
+
+{% if page.url == "/about/" %}
+<!-- Article Schema - About Page -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "A Short Story About Pixelarticons",
+  "description": "Learn the story behind Pixelarticons, from its creation in 2014 to becoming a collection of over 2000 pixel art icons.",
+  "url": "{{ meta.url }}/about/",
+  "author": {
+    "@type": "Person",
+    "name": "Gerrit Halfmann",
+    "url": "https://halfmage.com"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Gerrit Halfmann"
+  },
+  "image": "{{ meta.url }}/pixelarticons2014.jpg",
+  "datePublished": "2014-12-31",
+  "dateModified": "{{ page.date | dateToISO }}"
+}
+</script>
+{% endif %}

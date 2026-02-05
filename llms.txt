@@ -1,0 +1,69 @@
+# Pixelarticons
+
+> 2000+ pixel art icons designed on a 24x24px grid. Deliberately pixelated icons for modern web design.
+
+## About
+
+Pixelarticons is a comprehensive icon library featuring over 2000 pixel art icons. Created by Gerrit Halfmann (@halfmage), the project started in 2014 with a vision to bring pixel art aesthetics to modern interface design.
+
+Website: https://pixelarticons.com
+Purchase: https://halfmage.gumroad.com/l/pixelarticons
+Creator: Gerrit Halfmann (https://halfmage.com, @halfmage)
+
+## Icon Styles
+
+The library includes four distinct style variants:
+
+- **Base**: The default outlined style with clean pixel edges
+- **Sharp**: Sharper corners and more angular appearance
+- **Glyph**: Filled solid icons with interior details
+- **Solid**: Completely filled icons without interior detail
+
+## Technical Specifications
+
+- **Grid Size**: 24x24 pixels
+- **Scaling**: Must scale in multiples (12px, 24px, 48px, 72px, 96px) to maintain crisp pixel edges
+- **Formats Available**: PNG (free preview), SVG (Pro version)
+- **Total Icons**: 2131+ icons across all styles
+
+## Usage Guidelines
+
+1. Scale only in multiples of the base size (24px)
+2. Disable anti-aliasing/smoothing when displaying
+3. For CSS: use `image-rendering: pixelated`
+4. Icons work best on light or dark solid backgrounds
+
+## Machine-Readable Data
+
+Full icon catalog available at: https://pixelarticons.com/icons.json
+
+The JSON includes:
+- Icon names and base names
+- Style variants (base, sharp, glyph, solid)
+- File paths and filenames
+- Total icon count
+
+## License
+
+- Free version: PNG previews for personal and commercial use
+- Pro version: Full SVG access with commercial license
+
+## Categories
+
+Icons span multiple categories including:
+- User interface (arrows, controls, navigation)
+- Communication (mail, chat, notifications)
+- Media (play, pause, volume, music)
+- Files and documents
+- Social and people
+- Weather and nature
+- Technology and devices
+- And many more...
+
+## Integration
+
+Works with any web framework or design tool:
+- HTML/CSS (img tags or background images)
+- React, Vue, Svelte, etc.
+- Figma, Sketch, Adobe XD
+- Any platform supporting PNG or SVG
